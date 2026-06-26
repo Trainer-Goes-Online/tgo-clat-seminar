@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>You're In · CLAT Possible</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+/* CLAT Possible · confirmation (R12 success seal + next-steps) · navy/gold/Fraunces */
+:root{
+  --ink-muted:#9aa2b6;--gold:#A9792B;--gold-deep:#866017;--gold-lite:#D9B25A;--stage:#0B1322;
+  --f-display:"Fraunces","Georgia",serif;--f-mono:"JetBrains Mono",ui-monospace,monospace;--f-body:"Inter","Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box}html,body{margin:0;padding:0}
+body{font-family:var(--f-body);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh;color:#F4EEDC;
+  background:
+    radial-gradient(ellipse 120% 60% at 50% -4%,rgba(217,178,90,.18),rgba(217,178,90,0) 55%),
+    radial-gradient(ellipse 90% 50% at 50% 108%,rgba(169,121,43,.1),rgba(169,121,43,0) 60%),
+    var(--stage)}
+a{color:inherit}
+.eyebrow{font-family:var(--f-mono);font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-lite)}
+.em{background:linear-gradient(92deg,var(--gold-deep),var(--gold) 38%,var(--gold-lite) 60%,var(--gold) 82%);
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 0 30px rgba(217,178,90,.25)}
+
+.wrap{max-width:680px;margin:0 auto;padding:clamp(40px,6vw,84px) 22px clamp(48px,7vw,80px);text-align:center}
+.brand{display:inline-flex;align-items:center;gap:9px;margin-bottom:clamp(26px,3.4vw,40px);font-family:var(--f-display);font-weight:600;font-size:16px}
+.brand .mark{width:26px;height:26px;border-radius:7px;display:grid;place-items:center;background:linear-gradient(180deg,var(--gold-lite),var(--gold));color:#1B1408;font-family:var(--f-mono);font-size:11px}
+
+/* success seal */
+.seal{position:relative;display:grid;place-items:center;width:128px;height:128px;margin:0 auto clamp(20px,2.4vw,28px)}
+.seal-ring{position:absolute;inset:0;margin:auto;width:96px;height:96px;border-radius:50%;border:1px solid rgba(217,178,90,.5);animation:pulse 2.8s ease-out infinite}
+.seal-ring.b{animation-delay:1.4s}
+.seal-disc{position:relative;z-index:2;width:94px;height:94px;border-radius:50%;display:grid;place-items:center;color:#FFF3E0;
+  background:radial-gradient(circle at 50% 34%,rgba(255,225,170,.4),rgba(169,121,43,0) 62%),linear-gradient(160deg,var(--gold-lite),var(--gold) 52%,var(--gold-deep));
+  box-shadow:inset 0 1px 0 rgba(255,240,210,.6),0 0 0 6px rgba(217,178,90,.12),0 18px 44px -14px rgba(217,178,90,.75)}
+.seal-disc svg{width:44px;height:44px}
+@keyframes pulse{0%{opacity:.6;transform:scale(1)}70%{opacity:0;transform:scale(1.55)}100%{opacity:0}}
+
+h1{font-family:var(--f-display);font-weight:500;font-size:clamp(30px,4.4vw,50px);line-height:1.06;letter-spacing:-.02em;margin:0}
+.bridge{margin:16px auto 0;max-width:46ch;color:#C9CEDA;font-size:clamp(16px,1.5vw,18px);line-height:1.55}
+
+/* date strip */
+.dates{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:clamp(28px,3.4vw,40px) auto 0}
+.dcell{min-width:120px;padding:14px 16px;border-radius:13px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);text-align:center}
+.dcell .d{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-lite)}
+.dcell .n{font-family:var(--f-display);font-weight:600;font-size:22px;margin-top:4px}
+.dcell .t{font-family:var(--f-mono);font-size:10.5px;color:var(--ink-muted);margin-top:4px}
+.dnote{font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;color:var(--ink-muted);margin:14px 0 0}
+
+/* next-steps ledger */
+.next{max-width:540px;margin:clamp(34px,4vw,52px) auto 0;text-align:left}
+.next-h{font-family:var(--f-mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-muted);text-align:center;margin-bottom:8px}
+.nrow{display:flex;gap:15px;align-items:flex-start;padding:16px 4px;border-top:1px solid rgba(255,255,255,.1)}
+.nrow:last-child{border-bottom:1px solid rgba(255,255,255,.1)}
+.nnum{flex:0 0 auto;font-family:var(--f-mono);font-size:12px;color:var(--gold-lite);padding-top:2px}
+.nrow p{margin:0;font-size:14.5px;line-height:1.5;color:#E4E0D2}
+.nrow b{color:#fff;font-weight:600}
+
+/* whatsapp community card */
+.wa{display:flex;align-items:center;gap:16px;justify-content:space-between;max-width:540px;margin:clamp(28px,3vw,36px) auto 0;text-align:left;
+  padding:20px 22px;border-radius:16px;background:linear-gradient(180deg,rgba(217,178,90,.1),rgba(217,178,90,.03));border:1px solid rgba(217,178,90,.3)}
+.wa-t{font-family:var(--f-display);font-weight:500;font-size:17px;margin:0}
+.wa-d{margin:4px 0 0;font-size:12.5px;color:var(--ink-muted)}
+.wa-btn{flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14px;color:#1B1408;text-decoration:none;
+  background:linear-gradient(180deg,var(--gold-lite),var(--gold));padding:12px 18px;border-radius:999px;border:1px solid rgba(255,240,210,.4);box-shadow:0 12px 28px -12px rgba(169,121,43,.7);transition:.2s}
+.wa-btn:hover{filter:brightness(1.05);transform:translateY(-1px)}.wa-btn svg{width:16px;height:16px}
+@media(max-width:520px){.wa{flex-direction:column;align-items:flex-start;text-align:left}}
+
+.colophon{margin-top:clamp(40px,5vw,64px);padding-top:24px;border-top:1px solid rgba(255,255,255,.12);
+  font-family:var(--f-mono);font-size:11px;line-height:1.8;color:#8e96aa;letter-spacing:.02em}
+.colophon a{color:#A7AFC2;text-decoration:none}.colophon a:hover{color:var(--gold-lite)}
+@media(prefers-reduced-motion:reduce){.seal-ring{animation:none;opacity:.5;transform:scale(1.2)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><span class="mark">CP</span> CLAT Possible</div>
+
+  <span class="eyebrow">Payment confirmed</span>
+  <div class="seal" aria-hidden="true">
+    <span class="seal-ring"></span><span class="seal-ring b"></span>
+    <span class="seal-disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5 11-12"/></svg></span>
+  </div>
+
+  <h1>You&rsquo;re In. Your Seat Is <span class="em">Reserved.</span></h1>
+  <p class="bridge">Your spot in the 3-Day CLAT Rank Roadmap is locked. Here is exactly what happens next.</p>
+
+  <div class="dates">
+    <div class="dcell"><div class="d">Day 1</div><div class="n">28 Jun</div><div class="t">11 AM IST</div></div>
+    <div class="dcell"><div class="d">Day 2</div><div class="n">29 Jun</div><div class="t">11 AM IST</div></div>
+    <div class="dcell"><div class="d">Day 3</div><div class="n">30 Jun</div><div class="t">11 AM IST</div></div>
+  </div>
+  <p class="dnote">Live on Zoom &middot; 2 hours each day &middot; miss a day, get the 24-hour replay</p>
+
+  <div class="next">
+    <div class="next-h">What happens next</div>
+    <div class="nrow"><span class="nnum">01</span><p><b>Check your inbox and WhatsApp.</b> Your private Zoom link is on its way now, with reminders before each day.</p></div>
+    <div class="nrow"><span class="nnum">02</span><p><b>Add the 3 sessions to your calendar</b> so Day 1 doesn&rsquo;t slip past. Foundations start on 28 June.</p></div>
+    <div class="nrow"><span class="nnum">03</span><p><b>Show up ready on 28 June, 11 AM IST.</b> Bring your current level, nothing else. You leave Day 3 with your number and your plan.</p></div>
+  </div>
+
+  <div class="wa">
+    <div><p class="wa-t">Join the cohort on WhatsApp</p><p class="wa-d">Reminders, your Zoom links, and the prep notes, all in one place.</p></div>
+    <a class="wa-btn" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 0 1 6.6 12.5l.3.5-.7 2.5-2.6-.7-.5.3A8 8 0 1 1 12 4z"/></svg> Join now</a>
+  </div>
+
+  <div class="colophon">
+    Results vary by student effort and starting level. CLAT Possible.<br/>
+    <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a href="landing.html">Back to the masterclass</a>
+  </div>
+</div>
+</body>
+</html>
