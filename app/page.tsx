@@ -1,4 +1,5 @@
 import FunnelScripts from "./FunnelScripts";
+import RegisterModal from "./RegisterModal";
 
 const CHAMPS = [
   "Air-1", "Air-2", "Air-3", "Air-4", "Air-5", "Air-5-B", "Air-6", "Air-7",
@@ -34,7 +35,7 @@ export default function Page() {
         <div className="inner hero-inner" style={{position:"relative"}}>
           <span className="eyebrow hero-eyebrow reveal">FOR CLASS 10, 11 &amp; 12 STUDENTS (AND THEIR PARENTS)</span>
 
-          <h1 className="hero-h1 reveal">The Path to a Top NLU Starts With <span className="uline"><span className="em">One Clear Plan</span><svg className="uline-svg" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2,11 Q75,2 150,9 Q225,16 298,6" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/></svg></span>. We&rsquo;ll Hand It to You in 3 Hours.</h1>
+          <h1 className="hero-h1 reveal">The Path to a Top NLU Starts With <span className="hh-keep"><span className="uline"><span className="em">One Clear Plan</span><svg className="uline-svg" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2,11 Q75,2 150,9 Q225,16 298,6" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/></svg></span>.</span> We&rsquo;ll Hand It to You in 3 Hours.</h1>
 
           <p className="hero-sub reveal">Most students don&rsquo;t miss CLAT because they aren&rsquo;t smart enough. They miss it because nobody showed them <span className="hl">what to study, in what order, and how to fit it around school</span>. On 5th July, Dr. Surabhi Modi Sahai gives you that exact roadmap, live and in person.</p>
 
@@ -82,7 +83,7 @@ export default function Page() {
           </div>
 
           <div className="hcta reveal">
-            <a className="cta hero-cta" href="/register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
+            <a className="cta hero-cta" href="#register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
               <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5"/></svg></span></a>
             <div className="hcta-guar"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.6l8 3v5.4c0 4.4-3 7.6-8 8.8-5-1.2-8-4.4-8-8.8V5.6z"/><path d="M9 12l2 2 4-4.2"/></svg> 5th July at Constitution Club of India, New Delhi. Seats are limited and they fill fast.</div>
             <p className="cta-note"><span className="pin">&#9679;</span> 100% free &middot; In person on 5th July &middot; Limited seats</p>
@@ -91,7 +92,29 @@ export default function Page() {
       </header>
 
 
-      <section className="section section--soft">
+      <section className="section section--soft" id="champions">
+        <div className="inner-wide">
+          <div className="sec-head"><span className="eyebrow">Our Champions&rsquo; Wall</span>
+            <h2 className="sec-h2">Celebrating Remarkable <br className="bk"/><span className="em">CLAT Achievements</span></h2>
+            <p className="sec-deck">Real students. Real ranks. Real seats at the NLUs they were aiming for.</p></div>
+          <div className="champwall reveal">
+            {CHAMP_ROWS.map((row, r) => (
+              <div className="champrail" key={r}>
+                <div className="champtrack" style={{ "--n": row.length } as React.CSSProperties}>
+                  {[...row, ...row].map((f, i) => (
+                    <div className="champ" key={i} aria-hidden={i >= row.length ? true : undefined}>
+                      <img src={`/champions/${f}.webp`} alt="CLAT Possible topper" loading="lazy" />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      <section className="section">
         <div className="inner">
           <div className="sec-head"><span className="eyebrow">The honest starting point</span>
             <h2 className="sec-h2">Do You Dream of a Seat in a <br className="bk"/>Top NLU, <span className="em">But&hellip;</span></h2>
@@ -109,7 +132,7 @@ export default function Page() {
       </section>
 
 
-      <section className="section">
+      <section className="section section--soft">
         <div className="inner">
           <div className="sec-head"><span className="eyebrow">Instead, Imagine Walking Out With This</span>
             <h2 className="sec-h2">In 3 hours, you start your <br className="bk"/>journey with a <span className="em">map</span>, <br className="bk"/>not a guess</h2></div>
@@ -131,14 +154,14 @@ export default function Page() {
             </div>
           </div>
           <div style={{textAlign:"center",marginTop:"clamp(28px,3.4vw,40px)"}}>
-            <a className="cta" href="/register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
+            <a className="cta" href="#register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
               <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5"/></svg></span></a>
           </div>
         </div>
       </section>
 
 
-      <section className="section section--soft" id="champions">
+      <section className="section">
         <div className="inner-wide">
           <div className="sec-head"><span className="eyebrow">Why Students Trust CLAT Possible</span>
             <h2 className="sec-h2">A track record we can <br className="bk"/><span className="em">stand behind</span></h2></div>
@@ -152,7 +175,7 @@ export default function Page() {
       </section>
 
 
-      <section className="section">
+      <section className="section section--soft">
         <div className="inner-wide">
           <div className="sec-head"><span className="eyebrow">What 3 Hours With Us Actually Gives You</span>
             <h2 className="sec-h2">You walk out knowing <br className="bk"/>exactly what to do <span className="em">Monday morning</span></h2></div>
@@ -202,28 +225,6 @@ export default function Page() {
       </section>
 
 
-      <section className="section section--soft">
-        <div className="inner-wide">
-          <div className="sec-head"><span className="eyebrow">Our Champions&rsquo; Wall</span>
-            <h2 className="sec-h2">Celebrating Remarkable <br className="bk"/><span className="em">CLAT Achievements</span></h2>
-            <p className="sec-deck">Real students. Real ranks. Real seats at the NLUs they were aiming for.</p></div>
-          <div className="champwall reveal">
-            {CHAMP_ROWS.map((row, r) => (
-              <div className="champrail" key={r}>
-                <div className="champtrack" style={{ "--n": row.length } as React.CSSProperties}>
-                  {[...row, ...row].map((f, i) => (
-                    <div className="champ" key={i} aria-hidden={i >= row.length ? true : undefined}>
-                      <img src={`/champions/${f}.webp`} alt="CLAT Possible topper" loading="lazy" />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
       <section className="section">
         <div className="inner-wide">
           <div className="sec-head"><span className="eyebrow">Meet Your Host</span>
@@ -266,36 +267,8 @@ export default function Page() {
           </div>
           <div style={{textAlign:"center",marginTop:"clamp(30px,3.6vw,44px)"}}>
             <p style={{maxWidth:"52ch",margin:"0 auto clamp(18px,2vw,24px)",fontSize:"16px",color:"var(--ink)"}}>You do not have to figure this out alone, and you do not have to figure it out by trial and error. Take the first clear step toward your NLU seat on 5th July.</p>
-            <a className="cta" href="/register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
+            <a className="cta" href="#register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
               <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5"/></svg></span></a>
-          </div>
-        </div>
-      </section>
-
-
-      <section className="section">
-        <div className="inner-wide">
-          <div className="sec-head"><span className="eyebrow">What Our Students Say</span>
-            <h2 className="sec-h2">In their <span className="em">own words</span></h2></div>
-          <div className="quotes reveal">
-            <div className="qcard">
-              <span className="qmark">&ldquo;</span>
-              <p className="qtext">[TESTIMONIAL &mdash; real student quote needed: name, class/NLU, result]</p>
-              <div className="qmeta"><span className="qavatar">CP</span><div><div className="qname">[Student name]</div><div className="qrank">[Class / NLU / Result]</div></div></div>
-              <div className="qslot">Awaiting verified student quote</div>
-            </div>
-            <div className="qcard">
-              <span className="qmark">&ldquo;</span>
-              <p className="qtext">[TESTIMONIAL &mdash; real student quote needed: name, class/NLU, result]</p>
-              <div className="qmeta"><span className="qavatar">CP</span><div><div className="qname">[Student name]</div><div className="qrank">[Class / NLU / Result]</div></div></div>
-              <div className="qslot">Awaiting verified student quote</div>
-            </div>
-            <div className="qcard">
-              <span className="qmark">&ldquo;</span>
-              <p className="qtext">[TESTIMONIAL &mdash; real student quote needed: name, class/NLU, result]</p>
-              <div className="qmeta"><span className="qavatar">CP</span><div><div className="qname">[Student name]</div><div className="qrank">[Class / NLU / Result]</div></div></div>
-              <div className="qslot">Awaiting verified student quote</div>
-            </div>
           </div>
         </div>
       </section>
@@ -305,7 +278,7 @@ export default function Page() {
         <span className="stage-grain" aria-hidden="true"></span>
         <div className="inner" style={{position:"relative"}}>
           <h2>Stop preparing without a map. <span className="em">Come get yours.</span></h2>
-          <a className="cta" href="/register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
+          <a className="cta" href="#register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
             <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5"/></svg></span></a>
           <p className="cta-note"><span className="pin">&#9679;</span> 100% free &middot; Limited seats &middot; 5th July in person</p>
         </div>
@@ -334,22 +307,23 @@ export default function Page() {
           <span className="eyebrow" style={{display:"block",marginBottom:"clamp(18px,2vw,24px)"}}>YOUR SEAT IS WAITING</span>
           <p className="finale-quote">Somewhere a student with your exact marks is about to take the NLU seat you wanted, for one reason only: they had a <span className="em">plan</span>, and you were still guessing.</p>
           <p className="finale-sub">You can fix that in 3 hours on 5th July. Or keep guessing until results day.</p>
-          <a className="cta hero-cta" href="/register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
+          <a className="cta hero-cta" href="#register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
             <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5"/></svg></span></a>
           <p className="cta-note"><span className="pin">&#9679;</span> 100% free &middot; Limited seats &middot; 5th July in person</p>
           <div className="colophon">
             <p className="disclaimer"><b>Disclaimer:</b> CLAT Possible is an education and coaching seminar. The information shared in this seminar is for educational and informational purposes only and does not constitute a guarantee of admission, rank, or any specific outcome. Individual results may vary and depend on each student&rsquo;s own effort, consistency, and preparation.</p>
-            <p className="disclaimer">This website is operated and maintained by CLAT Possible. Use of this website is governed by our <a href="#">Terms &amp; Conditions</a> and <a href="#">Privacy Policy</a>. We do not guarantee specific results or admission to any National Law University. Results vary and depend on individual effort, consistency of preparation, and other factors outside our control.</p>
+            <p className="disclaimer">This website is operated and maintained by CLAT Possible. Use of this website is governed by our <a href="/terms">Terms &amp; Conditions</a> and <a href="/privacy">Privacy Policy</a>. We do not guarantee specific results or admission to any National Law University. Results vary and depend on individual effort, consistency of preparation, and other factors outside our control.</p>
             <p className="disclaimer">All content is the intellectual property of CLAT Possible. Any duplication, reproduction, or distribution without written permission is strictly prohibited.</p>
             <p className="disclaimer">This website is owned and operated by CLAT Possible.</p>
-            <p className="colophon-legal"><a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a href="#">Refund</a> &middot; &copy; 2026 CLAT Possible</p>
+            <p className="colophon-legal"><a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a> &middot; <a href="/refund">Refund</a> &middot; &copy; 2026 CLAT Possible</p>
           </div>
         </div>
       </section>
-      <a className="mcta" id="mcta" href="/register">
+      <a className="mcta" id="mcta" href="#register">
         <span className="mcta-price"><span className="mcta-was">&#8377;999</span>FREE<span className="mcta-sub">Limited seats</span></span>
         <span className="mcta-btn">Register Free <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5"/></svg></span>
       </a>
+      <RegisterModal />
       <FunnelScripts />
     </>
   );

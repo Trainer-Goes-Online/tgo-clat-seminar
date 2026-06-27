@@ -121,7 +121,10 @@ a{color:inherit}
 .hero-eyebrow{display:inline-block;border:1px solid rgba(8,126,255,.4);background:rgba(8,126,255,.08);
   padding:8px 18px 9px;border-radius:999px;margin-bottom:clamp(16px,2vw,22px)}
 .hero-h1{font-family:var(--f-display);font-weight:600;font-size:clamp(30px,4.8vw,52px);line-height:1.08;
-  letter-spacing:-0.02em;margin:0 auto;max-width:20ch}
+  letter-spacing:-0.02em;margin:0 auto;max-width:20ch;text-wrap:balance}
+/* keep the underlined phrase and its full stop glued together so the period can
+   never orphan onto the start of the next line (desktop + mobile) */
+.hero-h1 .hh-keep{white-space:nowrap}
 /* the value-phrase: gold accent + a hand-drawn underline sweep */
 .uline{position:relative;display:inline-block;padding-bottom:.16em}
 .uline-svg{position:absolute;left:0;bottom:.02em;width:100%;height:.32em;color:var(--gold);pointer-events:none;overflow:visible}
@@ -159,10 +162,10 @@ a{color:inherit}
 .hero-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px;width:100%;align-items:stretch;
   margin-top:clamp(24px,3vw,38px);text-align:left}
 .hfig{position:relative;border-radius:18px;overflow:hidden;background:#08234C;
-  border:1px solid rgba(8,126,255,.4);min-height:clamp(240px,28vw,320px);display:grid;place-items:center;
+  border:1px solid rgba(8,126,255,.4);align-self:start;
   box-shadow:0 0 48px rgba(8,126,255,.12),0 30px 64px -40px #000,inset 0 1px 0 rgba(255,255,255,.04)}
-/* box stretches to match the right column's height; poster is zoomed to fill it */
-.hfig img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+/* show the FULL poster (no crop): the image sets the box height at its natural ratio */
+.hfig img{position:relative;width:100%;height:auto;display:block;object-fit:contain}
 .hfig-ph{display:flex;flex-direction:column;align-items:center;gap:11px;color:rgba(8,126,255,.5);text-align:center;padding:18px}
 .hfig-ph svg{width:48px;height:48px}
 .hfig-ph small{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#8089a0}
@@ -691,12 +694,44 @@ a{color:inherit}
   background:linear-gradient(140deg,var(--gold-lite),var(--gold) 55%,var(--gold-deep));
   box-shadow:0 6px 16px -6px rgba(10,99,204,.7),inset 0 1px 0 rgba(255,255,255,.45)}
 .nrow p{margin:2px 0 0;font-size:14.5px;line-height:1.55;color:#3A4256}.nrow b{color:var(--ink);font-weight:600}
-.wa{display:flex;align-items:center;gap:16px;justify-content:space-between;max-width:540px;margin:clamp(28px,3vw,36px) auto 0;text-align:left;padding:20px 22px;border-radius:16px;background:linear-gradient(180deg,rgba(8,126,255,.1),rgba(8,126,255,.03));border:1px solid rgba(8,126,255,.3)}
+.wa{display:flex;flex-direction:column;align-items:stretch;gap:16px;max-width:540px;margin:clamp(28px,3vw,36px) auto 0;text-align:left;padding:20px 22px;border-radius:16px;background:linear-gradient(180deg,rgba(8,126,255,.1),rgba(8,126,255,.03));border:1px solid rgba(8,126,255,.3)}
 .wa-t{font-family:var(--f-display);font-weight:600;font-size:17px;margin:0}
 .wa-d{margin:4px 0 0;font-size:12.5px;color:#9aa2b6}
-.wa-btn{flex:0 0 auto;display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:14px;color:#FFFFFF;text-decoration:none;background:linear-gradient(180deg,var(--gold-lite),var(--gold));padding:12px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.4);box-shadow:0 12px 28px -12px rgba(10,99,204,.7);transition:.2s}
+.wa-btn{display:flex;width:100%;align-items:center;justify-content:center;gap:9px;font-weight:600;font-size:15px;color:#FFFFFF;text-decoration:none;background:linear-gradient(180deg,var(--gold-lite),var(--gold));padding:14px 18px;border-radius:999px;border:1px solid rgba(255,255,255,.4);box-shadow:0 12px 28px -12px rgba(10,99,204,.7);transition:.2s}
 .wa-btn:hover{filter:brightness(1.05);transform:translateY(-1px)}.wa-btn svg{width:16px;height:16px}
-@media(max-width:520px){.wa{flex-direction:column;align-items:flex-start}}
+@media(max-width:520px){.wa{align-items:stretch}}
+/* confirmation: enlarged WhatsApp emphasis (the #1 action) */
+.wa--hero{text-align:center;padding:26px 24px 22px;border-width:1.5px;box-shadow:0 26px 56px -28px rgba(10,99,204,.6),0 0 0 4px rgba(8,126,255,.05)}
+.wa-tag{align-self:center;display:inline-flex;align-items:center;gap:6px;margin-bottom:6px;font-family:var(--f-mono);font-size:10.5px;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--gold-deep);background:rgba(8,126,255,.12);border:1px solid rgba(8,126,255,.3);padding:5px 12px;border-radius:999px}
+.wa--hero .wa-t{font-size:clamp(20px,2.4vw,23px);text-align:center}
+.wa--hero .wa-d{text-align:center;font-size:13.5px;max-width:42ch;margin:6px auto 0}
+.wa--hero .wa-btn{padding:16px 18px;font-size:16px}
+
+/* confirmation: aspiration + show-up nudge — centered, attention-grabbing */
+.motiv{max-width:560px;margin:clamp(18px,2.2vw,26px) auto 0;padding:28px 26px 24px;border-radius:18px;text-align:center;background:linear-gradient(180deg,rgba(8,126,255,.11),rgba(8,126,255,.03));border:1px solid rgba(8,126,255,.28);box-shadow:0 18px 44px -30px rgba(10,99,204,.5)}
+.motiv-quote{font-family:var(--f-display);font-weight:600;font-size:clamp(20px,2.8vw,26px);line-height:1.26;letter-spacing:-.01em;color:var(--ink);margin:0}
+.motiv-by{margin:11px 0 0;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep)}
+.motiv-note{margin:16px auto 0;max-width:46ch;font-size:14.5px;line-height:1.6;color:#46566B}
+.motiv-host{display:block;margin-top:8px;font-weight:600;color:var(--ink)}
+
+/* ---------------- CTA REGISTER MODAL (free funnel) ---------------- */
+.rmodal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(4,12,30,.74);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.rmodal.open{display:flex;animation:rmFade .2s ease}
+.rmodal-panel{position:relative;width:100%;max-width:440px;max-height:92vh;overflow-y:auto;border-radius:20px;padding:clamp(22px,3vw,30px);
+  background:radial-gradient(120% 100% at 50% 0,#0b2c5e,#071f45 58%,#06183a);
+  border:1px solid rgba(8,126,255,.35);
+  box-shadow:0 0 60px rgba(8,126,255,.18),0 40px 90px -40px #000,inset 0 1px 0 rgba(255,255,255,.05);
+  animation:rmRise .25s ease}
+.rmodal-x{position:absolute;top:13px;right:13px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#9aa2b6;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);cursor:pointer;transition:.2s}
+.rmodal-x:hover{color:#fff;background:rgba(255,255,255,.12)}
+.rmodal-head{text-align:center;margin-bottom:20px}
+.rmodal-head .eyebrow{display:inline-flex;align-items:center;gap:7px}
+.rmodal-head h3{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,3.4vw,28px);line-height:1.1;letter-spacing:-.02em;margin:10px 0 0;color:#EAF3FF}
+.rmodal-head p{margin:9px auto 0;max-width:36ch;font-size:13.5px;line-height:1.5;color:#9aa2b6}
+.rmodal-fine{text-align:center;margin:13px 0 0;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.04em;color:#9aa2b6}
+@keyframes rmFade{from{opacity:0}to{opacity:1}}
+@keyframes rmRise{from{opacity:0;transform:translateY(14px) scale(.985)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.rmodal.open,.rmodal-panel{animation:none}}
 @media(prefers-reduced-motion:reduce){.seal-ring{animation:none;opacity:.5;transform:scale(1.2)}}
 
 /* hero fixes: body highlight + the "3 Days · Live" event-strip lead */

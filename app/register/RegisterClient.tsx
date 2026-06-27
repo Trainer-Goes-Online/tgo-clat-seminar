@@ -1,11 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { capturePageParams } from "@/lib/params";
+import { submitFreeRegistration } from "@/lib/register";
 
-/* CLAT Possible, FREE seminar registration (mirrors the checkout architecture,
-   but there is NO payment: no Razorpay, no price, no order. It is a simple lead
-   form. The one required qualifier is the education selector. On submit we POST
-   to a placeholder handler, then route to /confirmation. */
+/* CLAT Possible, FREE seminar registration — the no-JS / direct-link fallback for
+   the CTA modal (RegisterModal). There is NO payment. On submit it fires Meta
+   CAPI (CompleteRegistration + FreeWebinarRegistration) + the Pabbly webhook via
+   /api/free-register, then routes to /confirmation. The "education" selector maps
+   to the `grade` field. */
 
 type Form = {
   first_name: string;
@@ -33,6 +36,12 @@ export default function RegisterClient() {
   });
   const [loading, setLoading] = useState(false);
 
+  // Capture landing-page URL params (utm_*, fbclid, ...) so they forward to the
+  // Pabbly webhook + Meta CAPI on submit and on to /confirmation.
+  useEffect(() => {
+    capturePageParams();
+  }, []);
+
   const set =
     (k: keyof Form) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
@@ -46,14 +55,18 @@ export default function RegisterClient() {
     }
     setLoading(true);
     try {
-      // TODO: wire to real CRM/registration endpoint.
-      // This is a free seminar reg, so there is no payment step. Post the lead
-      // (name / phone / email / education) to the registration backend here,
-      // then send confirmation by email + WhatsApp from the server.
-      await new Promise((r) => setTimeout(r, 600));
-      window.location.href = "/confirmation";
-    } catch {
-      alert("Something went wrong. Please retry.");
+      const r = await submitFreeRegistration({
+        first_name: form.first_name,
+        last_name: form.last_name,
+        email: form.email,
+        phone: form.phone,
+        grade: form.education,
+        town: "",
+      });
+      if (r.ok && r.redirect) window.location.href = r.redirect;
+      else throw new Error(r.error || "Something went wrong.");
+    } catch (err) {
+      alert(err instanceof Error ? err.message : "Something went wrong. Please retry.");
       setLoading(false);
     }
   }
