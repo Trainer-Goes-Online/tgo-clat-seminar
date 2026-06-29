@@ -15,23 +15,26 @@ const WHATSAPP_URL =
 export default function ConfirmationPage() {
   return (
     <div className="page-stage page-light">
-      <ConfirmationClient />
+      <ConfirmationClient whatsappUrl={WHATSAPP_URL} />
       <div className="wrap">
-        <span className="eyebrow">Registration confirmed</span>
-        <div className="seal" aria-hidden="true">
+        <span className="eyebrow eyebrow--check"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.2 14.2L6.6 12l1.4-1.4 2.8 2.8 5.2-5.2L17.4 9.6z" /></svg> Registration confirmed</span>
+        <div className="seal seal--urgent" aria-hidden="true">
           <span className="seal-ring" /><span className="seal-ring b" />
-          <span className="seal-disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M4 12.5l5 5 11-12" /></svg></span>
+          <span className="seal-disc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h16.9a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" /><path d="M12 9.2v4" /><path d="M12 17h.01" /></svg></span>
         </div>
 
-        <h1>You&rsquo;re In. Your Seat Is <span className="em">Reserved.</span></h1>
-        <p className="bridge">Your free seat at the 5th July CLAT seminar is locked. Here is exactly what happens next.</p>
+        <h1><span className="hl">Your seat is <span className="em">Confirmed</span>,</span> <span className="hl">but <span className="em-urgent">one important step is left.</span></span></h1>
+        <p className="bridge">Your free seat at the 5th July CLAT seminar is locked. To get the venue, timing and reminders, you must join the WhatsApp group below.</p>
 
-        {/* PRIMARY action — join the WhatsApp community (enlarged + emphasised) */}
-        <div className="wa wa--hero">
-          <span className="wa-tag"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M12 3.2l2.5 5.1 5.6.8-4.05 4 .95 5.6L12 16.1l-5 2.6.95-5.6L3.9 9.1l5.6-.8z" /></svg> Your most important next step</span>
-          <p className="wa-t">Join the seminar group on WhatsApp</p>
-          <p className="wa-d">Your venue details, reminders, and prep notes all come through here. This is how we keep you posted before 5th July.</p>
-          <a className="wa-btn" href={WHATSAPP_URL} target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 0 1 6.6 12.5l.3.5-.7 2.5-2.6-.7-.5.3A8 8 0 1 1 12 4z" /></svg> Join now</a>
+        {/* PRIMARY action — join the WhatsApp community. Styled as the CRITICAL,
+            unmissable step (WhatsApp-green + pulsing glow): all event updates
+            flow only through this group, so skipping it means missing the event. */}
+        <div className="wa wa--hero wa--critical">
+          <span className="wa-tag"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zm0 7.2L4.8 6 12 3 19.2 6 12 9.2zM12 22a3 3 0 0 1-3-3h6a3 3 0 0 1-3 3z" /></svg> Required step &middot; Don&rsquo;t skip this</span>
+          <p className="wa-t">First, join the seminar group on <span className="em-wa">WhatsApp</span></p>
+          <p className="wa-d">Your venue details, reminders, and prep notes all come through here. This is how we keep you posted before <span className="wa-date">5th July</span>.</p>
+          <a className="wa-btn" href={WHATSAPP_URL} target="_blank" rel="noopener" data-wa-join><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 0 1 6.6 12.5l.3.5-.7 2.5-2.6-.7-.5.3A8 8 0 1 1 12 4z" /></svg> Join now</a>
+          <p className="wa-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" /></svg> <span>All event updates are sent <b>only on WhatsApp</b> &mdash; not by email or SMS. Without joining, you will not get the venue or timing.</span></p>
         </div>
 
         {/* Show-up nudge directly under the button — high visibility */}
