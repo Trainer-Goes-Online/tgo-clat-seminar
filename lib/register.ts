@@ -22,7 +22,9 @@ export function isRegFormValid(form: RegForm): boolean {
     form.phone.trim() &&
     form.town.trim();
   if (!filled) return false;
-  return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email.trim());
+  const emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email.trim());
+  const phoneOk = /^\d{10}$/.test(form.phone.trim());
+  return emailOk && phoneOk;
 }
 
 export async function submitFreeRegistration(

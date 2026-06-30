@@ -920,10 +920,16 @@ html:has(.page-stage:not(.page-light)),body:has(.page-stage:not(.page-light)){ba
   cursor:pointer;transition:.2s}
 .selectwrap select:focus{outline:none;border-color:rgba(8,126,255,.7);box-shadow:0 0 0 3px rgba(8,126,255,.16);background:rgba(8,30,70,.75)}
 .selectwrap select:invalid{color:#69728a}
+/* the native dropdown list: solid background + bright text so options don't
+   blend into the modal's translucent dark panel (Windows Chrome/Edge) */
+.selectwrap select option{background:#0B2C5E;color:#EAF3FF}
+.selectwrap select option:disabled{color:#7B8AA3}
 .selectwrap-ico{position:absolute;top:50%;right:13px;transform:translateY(-50%);pointer-events:none;
   display:grid;place-items:center;color:#9aa2b6}
 .selectwrap-ico svg{width:15px;height:15px}
 .page-light .selectwrap select{background:#fff;border:1px solid var(--hairline);color:var(--ink)}
+.page-light .selectwrap select option{background:#fff;color:var(--ink)}
+.page-light .selectwrap select option:disabled{color:#9AA6B5}
 .page-light .selectwrap select:invalid{color:#9AA6B5}
 .page-light .selectwrap select:focus{border-color:rgba(8,126,255,.7);box-shadow:0 0 0 3px rgba(8,126,255,.16)}
 .page-light .selectwrap-ico{color:var(--gold-deep)}
