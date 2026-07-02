@@ -4,3 +4,12 @@
 .env*.local
 *.tsbuildinfo
 .DS_Store
+
+# Stray file + redundant source uploads (clean-named copies are committed under
+# public/achievers and public/perks). Kept on disk but out of version control.
+/landing_full.png
+/public/CLAT achievers/
+/public/achievers/Akashdeep singh .png
+/public/perks/1-on-1 Guidance Session with the Founders.png
+/public/perks/Personalized Roadmap to a Top NLU.png
+/public/perks/Private Circle CLAT Achievers & NLU Students.png
