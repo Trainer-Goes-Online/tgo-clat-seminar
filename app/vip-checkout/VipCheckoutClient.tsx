@@ -4,22 +4,24 @@ import { useEffect, useState } from "react";
 import { capturePageParams, getStoredParams, paramsToQuery } from "@/lib/params";
 import { setMetaAdvancedMatching } from "@/lib/analytics";
 import { VIP_PERKS } from "@/lib/vip-config";
+import { INDIA_STATES, citiesForState } from "@/lib/india-locations";
 import VipPerks from "@/components/VipPerks";
 
 /* VIP checkout island. Collects buyer details (validated), creates a Razorpay
    order server-side, opens Razorpay Checkout, verifies the signature server-side
    (which fires the Pabbly VIP webhook + Meta CAPI Purchase), then redirects to
-   /thank-you-vip carrying the captured attribution params. */
+   /vip-thankyou carrying the captured attribution params. */
 
 type Form = {
   first_name: string;
   last_name: string;
   email: string;
   phone: string;
+  state: string;
   town: string;
 };
 
-const EMPTY: Form = { first_name: "", last_name: "", email: "", phone: "", town: "" };
+const EMPTY: Form = { first_name: "", last_name: "", email: "", phone: "", state: "", town: "" };
 
 // ---- Razorpay Checkout typings (script injected at pay time) ----
 type RazorpayResponse = {
@@ -76,14 +78,21 @@ export default function VipCheckoutClient({
   const onlyDigits10 = (v: string) => v.replace(/\D/g, "").slice(0, 10);
   const set =
     (k: keyof Form, sanitize?: (v: string) => string) =>
-    (e: React.ChangeEvent<HTMLInputElement>) => {
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
       e.currentTarget.setCustomValidity("");
       const v = sanitize ? sanitize(e.currentTarget.value) : e.currentTarget.value;
       setForm((p) => ({ ...p, [k]: v }));
     };
   const invalidMsg =
-    (msg: string) => (e: React.FormEvent<HTMLInputElement>) =>
+    (msg: string) => (e: React.FormEvent<HTMLInputElement | HTMLSelectElement>) =>
       e.currentTarget.setCustomValidity(msg);
+
+  // Changing the state resets the dependent city so a stale city can't persist.
+  const onStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.currentTarget.value; // read before setForm — React nulls currentTarget after the handler
+    e.currentTarget.setCustomValidity("");
+    setForm((p) => ({ ...p, state: value, town: "" }));
+  };
 
   useEffect(() => {
     capturePageParams();
@@ -106,6 +115,7 @@ export default function VipCheckoutClient({
         dial_code: "+91",
         country_code: "IN",
         city: form.town,
+        state: form.state,
       };
 
       // Fire MAM so the thank-you PageView ships with hashed identity (high EMQ).
@@ -161,7 +171,7 @@ export default function VipCheckoutClient({
             const data = await vRes.json();
             if (!data.ok) throw new Error(data.error || "Payment could not be verified.");
             const qs = paramsToQuery(params);
-            window.location.href = qs ? `/thank-you-vip?${qs}` : "/thank-you-vip";
+            window.location.href = qs ? `/vip-thankyou?${qs}` : "/vip-thankyou";
           } catch (err) {
             setError(err instanceof Error ? err.message : "Payment verification failed. If money was deducted, contact us on WhatsApp.");
             setLoading(false);
@@ -204,7 +214,24 @@ export default function VipCheckoutClient({
             <div className="field"><label htmlFor="vem">Email</label><input id="vem" type="email" required placeholder="aarav@example.com" autoComplete="email" inputMode="email" value={form.email} onChange={set("email")} onInvalid={invalidMsg("Please enter a valid email address.")} /></div>
             <div className="field"><label htmlFor="vph">Phone <span className="hint">For WhatsApp access</span></label>
               <div className="phone"><span className="dial">+91</span><input id="vph" type="tel" required pattern="\d{10}" maxLength={10} inputMode="numeric" title="10-digit mobile number" placeholder="98765 43210" autoComplete="tel-national" value={form.phone} onChange={set("phone", onlyDigits10)} onInvalid={invalidMsg("Please enter a 10-digit mobile number (digits only).")} /></div></div>
-            <div className="field"><label htmlFor="vct">Town / City <span className="hint">Optional</span></label><input id="vct" pattern="[A-Za-z][A-Za-z .'-]*" title="Letters only" autoComplete="address-level2" placeholder="Lucknow" value={form.town} onChange={set("town", onlyLetters)} onInvalid={invalidMsg("Please enter your town or city (letters only).")} /></div>
+            <div className="field"><label htmlFor="vst">Current State</label>
+              <div className="selectwrap">
+                <select id="vst" required value={form.state} onChange={onStateChange} onInvalid={invalidMsg("Please select the state you live in.")}>
+                  <option value="" disabled>Select your state</option>
+                  {INDIA_STATES.map((s) => (<option key={s} value={s}>{s}</option>))}
+                </select>
+                <span className="selectwrap-ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span>
+              </div>
+            </div>
+            <div className="field"><label htmlFor="vct">Town / City</label>
+              <div className="selectwrap">
+                <select id="vct" required value={form.town} onChange={set("town")} onInvalid={invalidMsg("Please select your town or city.")}>
+                  <option value="" disabled>{form.state ? "Select your city" : "First Select The Current State You Live In"}</option>
+                  {form.state && citiesForState(form.state).map((c) => (<option key={c} value={c}>{c}</option>))}
+                </select>
+                <span className="selectwrap-ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span>
+              </div>
+            </div>
             {error && <p className="vip-err" role="alert">{error}</p>}
             <button className="cta pay" type="submit" disabled={loading}><span>{loading ? "Opening secure payment…" : `Pay ${priceLabel} & Unlock VIP`}</span>
               <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" /></svg></span></button>

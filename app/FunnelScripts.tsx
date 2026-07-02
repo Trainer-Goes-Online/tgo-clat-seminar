@@ -12,11 +12,11 @@ export default function FunnelScripts() {
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     // ---- "registration closes in" countdown ----
-    // Seminar: Sunday, 5 July 2026, 11:00 AM IST at Constitution Club of India, New Delhi.
+    // Seminar: Sunday, 12 July 2026, 11:00 AM IST at Constitution Club of India, New Delhi.
     const cd = document.getElementById("countdown");
     let cdTimer: number | undefined;
     if (cd) {
-      const end = new Date("2026-07-05T11:00:00+05:30").getTime();
+      const end = new Date("2026-07-12T11:00:00+05:30").getTime();
       const d = cd.querySelector("[data-d]")!,
         h = cd.querySelector("[data-h]")!,
         m = cd.querySelector("[data-m]")!,

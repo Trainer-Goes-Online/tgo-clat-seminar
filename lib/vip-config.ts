@@ -47,6 +47,7 @@ export type VipFounder = {
   role: string;
   photo: string;
   bio: string;
+  focus?: string; // object-position for the square crop (default "center 22%")
 };
 
 // Founder photos: Surabhi's existing image is reused; add Satyam's at the path below.
@@ -60,8 +61,9 @@ export const VIP_FOUNDERS: VipFounder[] = [
   {
     name: "Satyam Sahai",
     role: "Entrepreneur · Founder, CLAT Possible",
-    photo: "/founders/satyam.jpg",
+    photo: "/Satyam-Image.jpeg",
     bio: "Works hands-on with serious aspirants on strategy, discipline, and the exact execution plan that turns a target NLU into an admit.",
+    focus: "center top", // anchor to the top so his full head/hair is never cropped
   },
 ];
 

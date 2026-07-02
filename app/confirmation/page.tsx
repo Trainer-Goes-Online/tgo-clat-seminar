@@ -24,7 +24,7 @@ export default function ConfirmationPage() {
         </div>
 
         <h1><span className="hl">Your seat is <span className="em">Confirmed</span>,</span> <span className="hl">but <span className="em-urgent">one important step is left.</span></span></h1>
-        <p className="bridge">Your free seat at the 5th July CLAT seminar is locked. To get the venue, timing and reminders, you must join the WhatsApp group below.</p>
+        <p className="bridge">Your free seat at the 12th July CLAT seminar is locked. To get the venue, timing and reminders, you must join the WhatsApp group below.</p>
 
         {/* PRIMARY action — join the WhatsApp community. Styled as the CRITICAL,
             unmissable step (WhatsApp-green + pulsing glow): all event updates
@@ -32,7 +32,7 @@ export default function ConfirmationPage() {
         <div className="wa wa--hero wa--critical">
           <span className="wa-tag"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zm0 7.2L4.8 6 12 3 19.2 6 12 9.2zM12 22a3 3 0 0 1-3-3h6a3 3 0 0 1-3 3z" /></svg> Required step &middot; Don&rsquo;t skip this</span>
           <p className="wa-t">First, join the seminar group on <span className="em-wa">WhatsApp</span></p>
-          <p className="wa-d">Your venue details, reminders, and prep notes all come through here. This is how we keep you posted before <span className="wa-date">5th July</span>.</p>
+          <p className="wa-d">Your venue details, reminders, and prep notes all come through here. This is how we keep you posted before <span className="wa-date">12th July</span>.</p>
           <a className="wa-btn" href={WHATSAPP_URL} target="_blank" rel="noopener" data-wa-join><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 0 1 6.6 12.5l.3.5-.7 2.5-2.6-.7-.5.3A8 8 0 1 1 12 4z" /></svg> Join now</a>
           <p className="wa-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" /></svg> <span>All event updates are sent <b>only on WhatsApp</b> &mdash; not by email or SMS. Without joining, you will not get the venue or timing.</span></p>
         </div>
@@ -41,12 +41,12 @@ export default function ConfirmationPage() {
         <div className="motiv">
           <p className="motiv-quote">&ldquo;Be educated, be organised, be agitated.&rdquo;</p>
           <p className="motiv-by">&mdash; Dr. B.R. Ambedkar, architect of the Indian Constitution</p>
-          <p className="motiv-note">Your seat is one of a limited few, and a real aspirant couldn&rsquo;t take it. The one thing we ask: show up on 5th July, and you walk out with your CLAT roadmap and a clear plan.<span className="motiv-host">&mdash; Dr. Surabhi Modi Sahai, CLAT Possible</span></p>
+          <p className="motiv-note">Your seat is one of a limited few, and a real aspirant couldn&rsquo;t take it. The one thing we ask: show up on 12th July, and you walk out with your CLAT roadmap and a clear plan.<span className="motiv-host">&mdash; Dr. Surabhi Modi Sahai, CLAT Possible</span></p>
         </div>
 
         {/* Event details below the WhatsApp callout */}
         <div className="dates">
-          <div className="dcell"><div className="d">Date</div><div className="n">5 Jul, Sun</div><div className="t">11 AM to 2 PM</div></div>
+          <div className="dcell"><div className="d">Date</div><div className="n">12 Jul, Sun</div><div className="t">11 AM to 2 PM</div></div>
           <div className="dcell"><div className="d">Venue</div><div className="n">In person</div><div className="t">Constitution Club of India, New Delhi</div></div>
           <div className="dcell"><div className="d">Duration</div><div className="n">3 hrs</div><div className="t">Live Q&amp;A included</div></div>
         </div>
@@ -55,8 +55,8 @@ export default function ConfirmationPage() {
         <div className="next">
           <div className="next-h">What happens next</div>
           <div className="nrow"><span className="nnum">01</span><p><b>Join the WhatsApp group.</b> Tap &ldquo;Join now&rdquo; above. Your venue details, reminders, and prep notes all come through there, not email.</p></div>
-          <div className="nrow"><span className="nnum">02</span><p><b>Save 5th July.</b> Add the seminar to your calendar so it doesn&rsquo;t slip past. It is at Constitution Club of India, New Delhi, from 11 AM to 2 PM.</p></div>
-          <div className="nrow"><span className="nnum">03</span><p><b>Show up ready on 5th July.</b> Bring your current level and your real questions, nothing else. You leave with your CLAT roadmap and a clear plan.</p></div>
+          <div className="nrow"><span className="nnum">02</span><p><b>Save 12th July.</b> Add the seminar to your calendar so it doesn&rsquo;t slip past. It is at Constitution Club of India, New Delhi, from 11 AM to 2 PM.</p></div>
+          <div className="nrow"><span className="nnum">03</span><p><b>Show up ready on 12th July.</b> Bring your current level and your real questions, nothing else. You leave with your CLAT roadmap and a clear plan.</p></div>
         </div>
 
         <div className="colophon">

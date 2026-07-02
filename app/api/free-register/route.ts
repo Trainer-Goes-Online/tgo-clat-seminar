@@ -19,6 +19,7 @@ type Customer = {
   dial_code?: string;
   country_code?: string; // 2-letter ISO
   city?: string;
+  state?: string;
   grade?: string;
 };
 
@@ -123,6 +124,7 @@ export async function POST(req: NextRequest) {
       utm_term: params.utm_term || "",
       fbclid: params.fbclid || "",
       grade: (c.grade || "").trim(),
+      state: (c.state || "").trim(),
       all_params: JSON.stringify(params),
     };
     const pabblyTask = postToPabbly(pabblyPayload);

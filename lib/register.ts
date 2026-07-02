@@ -11,6 +11,7 @@ export type RegForm = {
   email: string;
   phone: string;
   grade: string;
+  state: string;
   town: string;
 };
 
@@ -20,6 +21,7 @@ export function isRegFormValid(form: RegForm): boolean {
     form.last_name.trim() &&
     form.email.trim() &&
     form.phone.trim() &&
+    form.state.trim() &&
     form.town.trim();
   if (!filled) return false;
   const emailOk = /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(form.email.trim());
@@ -52,6 +54,7 @@ export async function submitFreeRegistration(
         dial_code: "+91",
         country_code: "IN",
         city: form.town,
+        state: form.state,
         grade: form.grade,
       },
       params: getStoredParams(),
@@ -63,6 +66,8 @@ export async function submitFreeRegistration(
   if (!data.ok) {
     return { ok: false, error: data.error || "Could not complete your registration." };
   }
+  // Free lead captured — send them to the VIP one-time offer next (carry params).
+  // The VIP page's "No thanks" decline routes on to /confirmation.
   const qs = paramsToQuery(getStoredParams());
-  return { ok: true, redirect: qs ? `/confirmation?${qs}` : "/confirmation" };
+  return { ok: true, redirect: qs ? `/vip?${qs}` : "/vip" };
 }

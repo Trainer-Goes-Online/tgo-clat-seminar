@@ -10,7 +10,7 @@ import VipAchievers from "@/components/VipAchievers";
    back to an initials avatar if missing. CTAs carry attribution params to
    /vip-checkout; the decline links route to the normal /confirmation. */
 
-function FounderPhoto({ photo, name }: { photo: string; name: string }) {
+function FounderPhoto({ photo, name, focus }: { photo: string; name: string; focus?: string }) {
   const [failed, setFailed] = useState(false);
   const ref = useRef<HTMLImageElement>(null);
   useBrokenImage(ref, setFailed);
@@ -21,6 +21,7 @@ function FounderPhoto({ photo, name }: { photo: string; name: string }) {
       ref={ref}
       src={photo}
       alt={name}
+      style={focus ? { objectPosition: focus } : undefined}
       onLoad={(e) => { if (e.currentTarget.naturalWidth === 0) setFailed(true); }}
       onError={() => setFailed(true)}
     />
@@ -35,12 +36,16 @@ export default function VipSeatClient({
   compareRupees: number;
 }) {
   const [checkoutHref, setCheckoutHref] = useState("/vip-checkout");
+  const [declineHref, setDeclineHref] = useState("/confirmation");
   const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Merge any params arriving on the /vip URL into the cp_params cookie, then
+    // carry them onward to both /vip-checkout (claim) and /confirmation (decline).
     capturePageParams();
     const qs = paramsToQuery(getStoredParams());
     setCheckoutHref(qs ? `/vip-checkout?${qs}` : "/vip-checkout");
+    setDeclineHref(qs ? `/confirmation?${qs}` : "/confirmation");
   }, []);
 
   // Scroll-reveal for elements marked .reveal.
@@ -78,18 +83,13 @@ export default function VipSeatClient({
         </span>
         <span className="eyebrow vip-hero-eyebrow"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z" /></svg> An invitation for serious aspirants</span>
         <h1 className="vip-title">Turn Your Free Seat Into a <span className="em em--gold">VIP Seat</span></h1>
-        <p className="vip-sub">You&rsquo;ve locked your seat for 5th July. Now unlock the three things that actually decide who gets into a top NLU &mdash; direct founder access, the right people around you, and a plan built for <em>you</em>.</p>
+        <p className="vip-sub">You&rsquo;ve locked your seat for 12th July. Now unlock the three things that actually decide who gets into a top NLU &mdash; direct founder access, the right people around you, and a plan built for <em>you</em>.</p>
         <div className="vip-hero-cta reveal">
-          <span className="vip-hero-price">
-            {compareLabel && <span className="vip-was">{compareLabel}</span>}
-            <span className="vip-now">{priceLabel}</span>
-            <span className="vip-now-tag">one-time</span>
-          </span>
-          <a className="cta pay vip-cta" href={checkoutHref}><span>Claim My VIP Seat</span>
+          <a className="cta pay vip-cta" href={checkoutHref}><span>Claim My VIP Seat &middot; {priceLabel}</span>
             <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" /></svg></span></a>
         </div>
-        <a className="vip-decline" href="/confirmation">No thanks, I&rsquo;ll skip the VIP seat</a>
-        <p className="vip-fine">Strictly limited VIP seats &middot; One-time payment &middot; Instant WhatsApp access</p>
+        <a className="vip-decline" href={declineHref}>No thanks, I&rsquo;ll skip the VIP seat</a>
+        <p className="vip-fine">Strictly limited VIP seats &middot; One-time payment &middot; Instant VIP WhatsApp Community Access</p>
       </header>
 
       {/* PERKS (shared graphics section) */}
@@ -105,7 +105,7 @@ export default function VipSeatClient({
         <div className="vip-founders">
           {VIP_FOUNDERS.map((f) => (
             <article className="vip-founder reveal" key={f.name}>
-              <div className="vip-founder-photo"><FounderPhoto photo={f.photo} name={f.name} /></div>
+              <div className="vip-founder-photo"><FounderPhoto photo={f.photo} name={f.name} focus={f.focus} /></div>
               <div className="vip-founder-body">
                 <p className="vip-founder-name">{f.name}</p>
                 <p className="vip-founder-role">{f.role}</p>
@@ -126,7 +126,7 @@ export default function VipSeatClient({
           <h2 className="vip-h2">Quick answers</h2>
         </div>
         <div className="vip-faq reveal">
-          <details open><summary><span>Is this different from the free seminar?</span><span className="vip-faq-ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span></summary><p>Yes. You still attend the free 5th July seminar. VIP adds the 1-on-1 founder session, the private achievers &amp; NLU-students circle, and your personalized roadmap on top.</p></details>
+          <details open><summary><span>Is this different from the free seminar?</span><span className="vip-faq-ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span></summary><p>Yes. You still attend the free 12th July seminar. VIP adds the 1-on-1 founder session, the private achievers &amp; NLU-students circle, and your personalized roadmap on top.</p></details>
           <details><summary><span>How do I get my VIP access?</span><span className="vip-faq-ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span></summary><p>Right after payment you land on your VIP confirmation page and join the WhatsApp community, where all VIP scheduling and event updates happen.</p></details>
           <details><summary><span>Is the payment secure?</span><span className="vip-faq-ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span></summary><p>Payments are processed over a secure, encrypted connection. We never see or store your card details.</p></details>
         </div>
@@ -140,16 +140,16 @@ export default function VipSeatClient({
           <p className="vip-final-d">VIP seats are limited on purpose &mdash; the sessions only work in a small room. If you&rsquo;re serious about a top NLU, claim yours now.</p>
           <a className="cta pay vip-cta" href={checkoutHref}><span>Claim My VIP Seat &middot; {priceLabel}</span>
             <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" /></svg></span></a>
-          <a className="vip-decline vip-decline--dark" href="/confirmation">No, I don&rsquo;t want to book my VIP seat</a>
-          <p className="vip-fine vip-fine--dark">One-time payment &middot; Instant WhatsApp access &middot; Limited seats</p>
+          <a className="vip-decline vip-decline--dark" href={declineHref}>No, I don&rsquo;t want to book my VIP seat</a>
+          <p className="vip-fine vip-fine--dark">One-time payment &middot; Instant VIP WhatsApp Community Access &middot; Limited seats</p>
         </div>
       </section>
 
-      {/* Sticky mobile CTA */}
-      <div className="vip-sticky">
-        <div className="vip-sticky-p"><span className="vip-sticky-now">{priceLabel}</span><span className="vip-sticky-k">VIP seat</span></div>
-        <a className="vip-sticky-cta" href={checkoutHref}>Claim now</a>
-      </div>
+      {/* Sticky mobile CTA — one prominent golden pill */}
+      <a className="vip-sticky" href={checkoutHref}>
+        <span className="vip-sticky-txt">Click here to claim your VIP Seat for {priceLabel}</span>
+        <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" /></svg></span>
+      </a>
     </div>
   );
 }

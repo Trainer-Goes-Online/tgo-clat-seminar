@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { capturePageParams } from "@/lib/params";
 import { setMetaAdvancedMatching } from "@/lib/analytics";
 import { submitFreeRegistration, isRegFormValid, type RegForm } from "@/lib/register";
+import { INDIA_STATES, citiesForState } from "@/lib/india-locations";
 
 /* Free-seminar registration as a CTA-triggered modal (replaces navigating to a
    checkout/register page). Every CTA on the landing page is an <a href="#register">;
@@ -20,6 +21,7 @@ const EMPTY: RegForm = {
   email: "",
   phone: "",
   grade: "",
+  state: "",
   town: "",
 };
 
@@ -47,6 +49,13 @@ export default function RegisterModal() {
     (msg: string) =>
     (e: React.FormEvent<HTMLInputElement | HTMLSelectElement>) =>
       e.currentTarget.setCustomValidity(msg);
+
+  // Changing the state resets the dependent city so a stale city can't persist.
+  const onStateChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.currentTarget.value; // read before setForm — React nulls currentTarget after the handler
+    e.currentTarget.setCustomValidity("");
+    setForm((p) => ({ ...p, state: value, town: "" }));
+  };
 
   // Capture landing-page URL params (utm_*, fbclid, ...) into the cp_params
   // cookie, and intercept every "#register" CTA → open the modal.
@@ -130,7 +139,7 @@ export default function RegisterModal() {
         <div className="rmodal-head">
           <span className="eyebrow"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z" /></svg> Limited free seats</span>
           <h3>Reserve Your <span className="em">Free Seat</span></h3>
-          <p>In person on 5th July &middot; 11 AM to 2 PM &middot; no payment, no card.</p>
+          <p>In person on 12th July &middot; 11 AM to 2 PM &middot; no payment, no card.</p>
         </div>
 
         <form onSubmit={handleSubmit} noValidate>
@@ -154,7 +163,24 @@ export default function RegisterModal() {
               <span className="selectwrap-ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span>
             </div>
           </div>
-          <div className="field"><label htmlFor="rct">Town / City</label><input id="rct" required pattern="[A-Za-z][A-Za-z .'-]*" title="Letters only" inputMode="text" autoComplete="address-level2" placeholder="Lucknow" value={form.town} onChange={set("town", onlyLetters)} onInvalid={invalidMsg("Please enter your town or city (letters only).")} /></div>
+          <div className="field"><label htmlFor="rst">Current State</label>
+            <div className="selectwrap">
+              <select id="rst" required value={form.state} onChange={onStateChange} onInvalid={invalidMsg("Please select the state you live in.")}>
+                <option value="" disabled>Select your state</option>
+                {INDIA_STATES.map((s) => (<option key={s} value={s}>{s}</option>))}
+              </select>
+              <span className="selectwrap-ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span>
+            </div>
+          </div>
+          <div className="field"><label htmlFor="rct">Town / City</label>
+            <div className="selectwrap">
+              <select id="rct" required value={form.town} onChange={set("town")} onInvalid={invalidMsg("Please select your town or city.")}>
+                <option value="" disabled>{form.state ? "Select your city" : "First Select The Current State You Live In"}</option>
+                {form.state && citiesForState(form.state).map((c) => (<option key={c} value={c}>{c}</option>))}
+              </select>
+              <span className="selectwrap-ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span>
+            </div>
+          </div>
           <button className="cta pay" type="submit" disabled={loading}><span>{loading ? "Reserving…" : "Book My Free Seat"}</span>
             <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" /></svg></span></button>
           <p className="rmodal-fine">100% free &middot; No card needed &middot; Details on WhatsApp</p>

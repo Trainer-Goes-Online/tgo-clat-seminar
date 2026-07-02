@@ -5,8 +5,9 @@ import { postToPabblyVip } from "@/lib/pabbly";
 import { getVipPriceRupees, VIP_CONFIG } from "@/lib/vip-config";
 
 /* Verifies a Razorpay VIP payment, then fans out server-side (fail-open):
+   - Meta CAPI: ONE custom event ("vip_sale", env VIP_CUSTOM_EVENT) — NO standard
+     event (no Purchase). Carries the ₹ value + full hashed identity.
    - Pabbly VIP webhook (PABBLY_VIP_WEBHOOK_URL) → separate CRM row for buyers.
-   - Meta CAPI Purchase (+ custom) with the VIP value.
    Signature check is mandatory: HMAC_SHA256(order_id|payment_id, key_secret).
    A missing env var or downstream error never blocks the buyer's thank-you page. */
 
@@ -20,6 +21,7 @@ type Customer = {
   dial_code?: string;
   country_code?: string;
   city?: string;
+  state?: string;
   grade?: string;
 };
 
@@ -91,7 +93,7 @@ export async function POST(req: NextRequest) {
     const eventSourceUrl = body.event_source_url || siteUrl || "";
     const externalId = email ? sha256(email.toLowerCase()) : "";
 
-    // ---- Meta CAPI: Purchase + custom (event_id = razorpay payment id) ----
+    // ---- Meta CAPI: ONE custom event only (vip_sale), NO standard event ----
     const capiTask = sendMetaPurchaseEvents({
       paymentId,
       email,
@@ -107,8 +109,8 @@ export async function POST(req: NextRequest) {
       clientUserAgent: clientUserAgent || undefined,
       valueRupees: priceRupees,
       currency: VIP_CONFIG.currency,
-      standardEventName: "Purchase",
-      customEventName: "VipSeatPurchase",
+      standardEventName: "", // omit the standard event — custom only
+      customEventName: process.env.VIP_CUSTOM_EVENT || "vip_sale",
     });
 
     // ---- Pabbly VIP webhook: one enriched row per buyer ----
@@ -121,6 +123,7 @@ export async function POST(req: NextRequest) {
       email,
       phone: fullPhone,
       city,
+      state: (c.state || "").trim(),
       country_code: countryIso,
       grade: (c.grade || "").trim(),
       amount: priceRupees,
@@ -144,9 +147,7 @@ export async function POST(req: NextRequest) {
       fbclid: params.fbclid || "",
       all_params: JSON.stringify(params),
     };
-    const pabblyTask = postToPabblyVip(pabblyPayload);
-
-    const [capiRes, pabblyRes] = await Promise.allSettled([capiTask, pabblyTask]);
+    const [capiRes, pabblyRes] = await Promise.allSettled([capiTask, postToPabblyVip(pabblyPayload)]);
     if (capiRes.status === "rejected") console.error("[vip-verify] Meta CAPI error:", capiRes.reason);
     if (pabblyRes.status === "rejected") console.error("[vip-verify] Pabbly error:", pabblyRes.reason);
 
