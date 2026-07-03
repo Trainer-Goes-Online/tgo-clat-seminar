@@ -33,7 +33,7 @@ export default function Page() {
       <header className="hero">
         <span className="stage-grain" aria-hidden="true"></span>
         <div className="inner hero-inner" style={{position:"relative"}}>
-          <span className="eyebrow hero-eyebrow reveal">FOR CLASS 10, 11 &amp; 12 STUDENTS (AND THEIR PARENTS)</span>
+          <span className="hero-locale reveal"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 21c5-4.6 7-8 7-11a7 7 0 1 0-14 0c0 3 2 6.4 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Only for Class 10, 11 &amp; 12 Students/Parents Living in <span className="hl-city">New Delhi</span></span>
 
           <h1 className="hero-h1 reveal">The Path to a Top NLU Starts With <span className="hh-keep"><span className="uline"><span className="em">One Clear Plan</span><svg className="uline-svg" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2,11 Q75,2 150,9 Q225,16 298,6" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/></svg></span>.</span> We&rsquo;ll Hand It to You in 3 Hours.</h1>
 

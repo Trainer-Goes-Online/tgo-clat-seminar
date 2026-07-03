@@ -120,6 +120,21 @@ a{color:inherit}
   background:linear-gradient(180deg,var(--gold-lite),var(--gold));color:#FFFFFF;font-family:var(--f-mono);font-weight:500;font-size:13px}
 .hero-eyebrow{display:inline-block;border:1px solid rgba(8,126,255,.4);background:rgba(8,126,255,.08);
   padding:8px 18px 9px;border-radius:999px;margin-bottom:clamp(16px,2vw,22px)}
+/* bold dark-navy geo callout — the hero's single eyebrow */
+.hero-locale{display:inline-flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:8px;max-width:100%;
+  margin-bottom:clamp(16px,2vw,22px);
+  font-family:var(--f-mono);font-weight:700;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.4;text-align:center;
+  color:#EAF3FF;background:linear-gradient(180deg,#0E2A55,#0A2147);
+  border:1px solid rgba(111,192,255,.42);border-radius:12px;padding:10px 22px;
+  box-shadow:0 12px 28px -12px rgba(10,37,80,.55),inset 0 1px 0 rgba(255,255,255,.08)}
+.hero-locale svg{color:var(--gold-lite);flex:0 0 auto}
+/* "NEW DELHI" highlighted as a bright-azure filled chip (matches the navy box) */
+.hero-locale .hl-city{display:inline-block;color:#FFFFFF;font-weight:700;
+  background:linear-gradient(180deg,#6FC0FF,#087EFF);
+  padding:1px 9px 2px;border-radius:6px;margin:0 1px;letter-spacing:.06em;
+  box-shadow:0 3px 12px rgba(8,126,255,.55),inset 0 1px 0 rgba(255,255,255,.4);
+  text-shadow:0 1px 2px rgba(6,24,58,.35)}
+@media(max-width:560px){.hero-locale{font-size:11px;letter-spacing:.05em;padding:9px 16px}}
 .hero-h1{font-family:var(--f-display);font-weight:600;font-size:clamp(30px,4.8vw,52px);line-height:1.08;
   letter-spacing:-0.02em;margin:0 auto;max-width:20ch;text-wrap:balance}
 /* keep the underlined phrase and its full stop glued together so the period can

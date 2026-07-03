@@ -21,6 +21,7 @@ type Customer = {
   city?: string;
   state?: string;
   grade?: string;
+  role?: string; // Student / Parent / Guardian / Other
 };
 
 type Body = {
@@ -124,6 +125,7 @@ export async function POST(req: NextRequest) {
       utm_term: params.utm_term || "",
       fbclid: params.fbclid || "",
       grade: (c.grade || "").trim(),
+      role: (c.role || "").trim(),
       state: (c.state || "").trim(),
       all_params: JSON.stringify(params),
     };

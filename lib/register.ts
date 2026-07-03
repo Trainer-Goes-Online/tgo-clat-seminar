@@ -11,6 +11,7 @@ export type RegForm = {
   email: string;
   phone: string;
   grade: string;
+  role?: string; // Student / Parent / Guardian / Other
   state: string;
   town: string;
 };
@@ -56,6 +57,7 @@ export async function submitFreeRegistration(
         city: form.town,
         state: form.state,
         grade: form.grade,
+        role: form.role || "",
       },
       params: getStoredParams(),
       event_source_url:

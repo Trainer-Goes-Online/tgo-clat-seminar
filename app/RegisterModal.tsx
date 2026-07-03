@@ -21,6 +21,7 @@ const EMPTY: RegForm = {
   email: "",
   phone: "",
   grade: "",
+  role: "",
   state: "",
   town: "",
 };
@@ -158,6 +159,18 @@ export default function RegisterModal() {
                 <option value="12th">12th</option>
                 <option value="Dropper">Dropper</option>
                 <option value="First year">First year</option>
+                <option value="Other">Other</option>
+              </select>
+              <span className="selectwrap-ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span>
+            </div>
+          </div>
+          <div className="field"><label htmlFor="rrole">Are you a student or a parent?</label>
+            <div className="selectwrap">
+              <select id="rrole" required value={form.role} onChange={set("role")} onInvalid={invalidMsg("Please tell us whether you are a student, parent, or guardian.")}>
+                <option value="" disabled>Select one</option>
+                <option value="Student">Student</option>
+                <option value="Parent">Parent</option>
+                <option value="Guardian">Guardian</option>
                 <option value="Other">Other</option>
               </select>
               <span className="selectwrap-ico" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span>
