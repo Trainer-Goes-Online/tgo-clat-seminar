@@ -140,7 +140,7 @@ export default function RegisterModal() {
         <div className="rmodal-head">
           <span className="eyebrow"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z" /></svg> Limited free seats</span>
           <h3>Reserve Your <span className="em">Free Seat</span></h3>
-          <p>In person on 12th July &middot; 11 AM to 2 PM &middot; no payment, no card.</p>
+          <p>In person on 26th July &middot; 11 AM to 2 PM &middot; no payment, no card.</p>
         </div>
 
         <form onSubmit={handleSubmit} noValidate>

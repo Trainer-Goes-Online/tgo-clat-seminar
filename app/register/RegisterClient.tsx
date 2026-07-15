@@ -78,7 +78,7 @@ export default function RegisterClient() {
         <div className="co-head">
           <span className="eyebrow"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z" /></svg> You&rsquo;re one step from your seat</span>
           <h1>Reserve Your <span className="em">Free Seat</span></h1>
-          <p>Add your details and lock your seat for the 12th July seminar. Your registration is <span className="price">&#8377;999 FREE</span>, with nothing to pay now or at the door.</p>
+          <p>Add your details and lock your seat for the 26th July seminar. Your registration is <span className="price">&#8377;999 FREE</span>, with nothing to pay now or at the door.</p>
         </div>
 
         <form className="grid grid--reg" onSubmit={handleSubmit} noValidate>
@@ -113,16 +113,16 @@ export default function RegisterClient() {
               <div><h2 className="card-title">Your Seat</h2></div></div>
             <div className="item"><span className="item-logo">CP</span><div><p className="item-t">Free CLAT Career Seminar</p><p className="item-d">A single 3-hour, in-person seminar with Dr. Surabhi Modi Sahai. Your full CLAT roadmap, plus a live Q&amp;A.</p></div></div>
             <div className="rdetails">
-              <div className="rdrow"><span className="rdrow-k">Date</span><span className="rdrow-v">12th July, Sunday</span></div>
+              <div className="rdrow"><span className="rdrow-k">Date</span><span className="rdrow-v">26th July, Sunday</span></div>
               <div className="rdrow"><span className="rdrow-k">Time</span><span className="rdrow-v">11 AM to 2 PM</span></div>
-              <div className="rdrow"><span className="rdrow-k">Venue</span><span className="rdrow-v">Constitution Club of India, New Delhi</span></div>
+              <div className="rdrow"><span className="rdrow-k">Venue</span><span className="rdrow-v">3rd Floor, Wave Silver Tower, 310, Sector 18, Noida, Uttar Pradesh 201301</span></div>
               <div className="rdrow"><span className="rdrow-k">Duration</span><span className="rdrow-v">3 hours, live and in person</span></div>
             </div>
             <div className="total"><span className="total-l">Total Today</span><span><span className="total-was">&#8377;999</span><span className="total-now total-free">FREE</span></span></div>
             <button className="cta pay" type="submit" disabled={loading}><span>{loading ? "Reserving your seat…" : (<>Register Now for <s className="cta-was">&#8377;999</s> FREE</>)}</span>
               <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" /></svg></span></button>
             <p className="refund"><span className="seal-i"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10.5l4 4 8-9" /></svg></span>
-              100% free. Limited seats. 12th July, in person at Constitution Club of India, New Delhi.</p>
+              100% free. Limited seats. 26th July, in person at Wave Silver Tower, Sector 18, Noida.</p>
           </aside>
         </form>
       </div>

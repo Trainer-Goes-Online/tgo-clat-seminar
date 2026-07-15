@@ -12,7 +12,7 @@ const CHAMP_ROWS = [
 ];
 const TICKER = [
   "Free CLAT Career Seminar",
-  "12th July, Constitution Club of India, New Delhi",
+  "26th July, Wave Silver Tower, Sector 18, Noida",
   "11 AM to 2 PM, 3 hours",
   "Hosted by Dr. Surabhi Modi Sahai",
   "For Class 10, 11, 12 & droppers",
@@ -37,7 +37,7 @@ export default function Page() {
 
           <h1 className="hero-h1 reveal">The Path to a Top NLU Starts With <span className="hh-keep"><span className="uline"><span className="em">One Clear Plan</span><svg className="uline-svg" viewBox="0 0 300 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2,11 Q75,2 150,9 Q225,16 298,6" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/></svg></span>.</span> We&rsquo;ll Hand It to You in 3 Hours.</h1>
 
-          <p className="hero-sub reveal">Most students don&rsquo;t miss CLAT because they aren&rsquo;t smart enough. They miss it because nobody showed them <span className="hl">what to study, in what order, and how to fit it around school</span>. On 12th July, Dr. Surabhi Modi Sahai gives you that exact roadmap, live and in person.</p>
+          <p className="hero-sub reveal">Most students don&rsquo;t miss CLAT because they aren&rsquo;t smart enough. They miss it because nobody showed them <span className="hl">what to study, in what order, and how to fit it around school</span>. On 26th July, Dr. Surabhi Modi Sahai gives you that exact roadmap, live and in person.</p>
 
           <div className="hero-cred reveal">Hosted live by <b>Dr. Surabhi Modi Sahai</b>, MD &amp; CEO, CLAT Possible <span className="hero-cred-sep">&middot;</span> she still mentors the class herself</div>
 
@@ -62,7 +62,7 @@ export default function Page() {
               <div className="hcard reveal reveal-d1">
                 <span className="hcard-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg></span>
                 <span className="hcard-k">Date</span>
-                <span className="hcard-v">12th July, Sunday</span>
+                <span className="hcard-v">26th July, Sunday</span>
               </div>
               <div className="hcard reveal reveal-d2">
                 <span className="hcard-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5l3 2"/></svg></span>
@@ -72,7 +72,7 @@ export default function Page() {
               <div className="hcard reveal reveal-d3">
                 <span className="hcard-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 21c5-4.6 7-8 7-11a7 7 0 1 0-14 0c0 3 2 6.4 7 11z"/></svg></span>
                 <span className="hcard-k">Venue</span>
-                <span className="hcard-v">Constitution Club of India, New Delhi</span>
+                <span className="hcard-v">Wave Silver Tower, Sector 18, Noida</span>
               </div>
               <div className="hcard reveal reveal-d4">
                 <span className="hcard-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 20c0-3.6 2.9-5.6 6.5-5.6s6.5 2 6.5 5.6"/></svg></span>
@@ -85,8 +85,8 @@ export default function Page() {
           <div className="hcta reveal">
             <a className="cta hero-cta" href="#register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
               <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5"/></svg></span></a>
-            <div className="hcta-guar"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.6l8 3v5.4c0 4.4-3 7.6-8 8.8-5-1.2-8-4.4-8-8.8V5.6z"/><path d="M9 12l2 2 4-4.2"/></svg> 12th July at Constitution Club of India, New Delhi. Seats are limited and they fill fast.</div>
-            <p className="cta-note"><span className="pin">&#9679;</span> 100% free &middot; In person on 12th July &middot; Limited seats</p>
+            <div className="hcta-guar"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.6l8 3v5.4c0 4.4-3 7.6-8 8.8-5-1.2-8-4.4-8-8.8V5.6z"/><path d="M9 12l2 2 4-4.2"/></svg> 26th July at Wave Silver Tower, Sector 18, Noida. Seats are limited and they fill fast.</div>
+            <p className="cta-note"><span className="pin">&#9679;</span> 100% free &middot; In person on 26th July &middot; Limited seats</p>
           </div>
         </div>
       </header>
@@ -150,7 +150,7 @@ export default function Page() {
                 <div className="snap-field"><span className="snap-k"><span className="node"></span>Mocks</span><span className="snap-v">Time management you have genuinely mastered, so your mock scores climb instead of stalling.</span></div>
                 <div className="snap-field snap-field--full"><span className="snap-k"><span className="node"></span>Family</span><span className="snap-v">Your parents watching you secure a seat at a prestigious NLU, proud of the plan you stuck to.</span></div>
               </div>
-              <div className="snap-foot"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.6l8 3v5.4c0 4.4-3 7.6-8 8.8-5-1.2-8-4.4-8-8.8V5.6z"/><path d="M9 12l2 2 4-4.2"/></svg>We built CLAT Possible to make this real for students like you. The 12th July seminar is where it begins.</div>
+              <div className="snap-foot"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2.6l8 3v5.4c0 4.4-3 7.6-8 8.8-5-1.2-8-4.4-8-8.8V5.6z"/><path d="M9 12l2 2 4-4.2"/></svg>We built CLAT Possible to make this real for students like you. The 26th July seminar is where it begins.</div>
             </div>
           </div>
           <div style={{textAlign:"center",marginTop:"clamp(28px,3.4vw,40px)"}}>
@@ -240,7 +240,7 @@ export default function Page() {
                 <span className="pill">Fulbright (FLTA) nominee, UC Davis</span>
                 <span className="pill">Ph.D., University of Lucknow</span>
               </div>
-              <p className="host-bio">Dr. Surabhi built the academic foundation that CLAT Possible runs on, and she has personally mentored thousands of students from confused beginners to NLU admits. <span className="lede">For three hours on 12th July, that experience is in the room with you, answering your questions directly.</span></p>
+              <p className="host-bio">Dr. Surabhi built the academic foundation that CLAT Possible runs on, and she has personally mentored thousands of students from confused beginners to NLU admits. <span className="lede">For three hours on 26th July, that experience is in the room with you, answering your questions directly.</span></p>
             </div>
           </div>
         </div>
@@ -266,7 +266,7 @@ export default function Page() {
               <p>A parent who wants to understand how to genuinely support your child&rsquo;s preparation.</p></div>
           </div>
           <div style={{textAlign:"center",marginTop:"clamp(30px,3.6vw,44px)"}}>
-            <p style={{maxWidth:"52ch",margin:"0 auto clamp(18px,2vw,24px)",fontSize:"16px",color:"var(--ink)"}}>You do not have to figure this out alone, and you do not have to figure it out by trial and error. Take the first clear step toward your NLU seat on 12th July.</p>
+            <p style={{maxWidth:"52ch",margin:"0 auto clamp(18px,2vw,24px)",fontSize:"16px",color:"var(--ink)"}}>You do not have to figure this out alone, and you do not have to figure it out by trial and error. Take the first clear step toward your NLU seat on 26th July.</p>
             <a className="cta" href="#register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
               <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5"/></svg></span></a>
           </div>
@@ -280,7 +280,7 @@ export default function Page() {
           <h2>Stop preparing without a map. <span className="em">Come get yours.</span></h2>
           <a className="cta" href="#register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
             <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5"/></svg></span></a>
-          <p className="cta-note"><span className="pin">&#9679;</span> 100% free &middot; Limited seats &middot; 12th July in person</p>
+          <p className="cta-note"><span className="pin">&#9679;</span> 100% free &middot; Limited seats &middot; 26th July in person</p>
         </div>
       </section>
 
@@ -290,7 +290,7 @@ export default function Page() {
           <div className="sec-head"><span className="eyebrow">Before You Register</span>
             <h2 className="sec-h2">The honest <span className="em">answers</span></h2></div>
           <div className="faq reveal">
-            <details><summary><span className="faq-q">How do I join the seminar?</span><span className="faq-ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5"/></svg></span></summary><p className="faq-a">Register on this page by filling in your details. Once you are registered, your seat is confirmed and you simply come to the venue (Constitution Club of India, New Delhi) on 12th July, Sunday, between 11 AM and 2 PM. There is nothing else to arrange.</p></details>
+            <details><summary><span className="faq-q">How do I join the seminar?</span><span className="faq-ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5"/></svg></span></summary><p className="faq-a">Register on this page by filling in your details. Once you are registered, your seat is confirmed and you simply come to the venue (3rd Floor, Wave Silver Tower, 310, Sector 18, Noida, Uttar Pradesh 201301) on 26th July, Sunday, between 11 AM and 2 PM IST. There is nothing else to arrange.</p></details>
             <details open><summary><span className="faq-q">Do I have to pay anything?<span className="faq-most"><span className="dot"></span>Most asked</span></span><span className="faq-ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5"/></svg></span></summary><p className="faq-a">No. The seminar is normally priced at &#8377;999, but your registration today is completely free. There is no charge to attend and nothing to pay at the door.</p></details>
             <details><summary><span className="faq-q">How long is the seminar?</span><span className="faq-ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5"/></svg></span></summary><p className="faq-a">It runs for 3 hours, enough time to walk through the full CLAT roadmap and still answer your questions.</p></details>
             <details><summary><span className="faq-q">Can I ask my own questions?</span><span className="faq-ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5"/></svg></span></summary><p className="faq-a">Yes. There is a dedicated Q&amp;A, so you can put your real doubts about CLAT prep, strategy, and NLU admissions straight to Dr. Surabhi and the team.</p></details>
@@ -306,10 +306,10 @@ export default function Page() {
         <div className="inner" style={{position:"relative"}}>
           <span className="eyebrow" style={{display:"block",marginBottom:"clamp(18px,2vw,24px)"}}>YOUR SEAT IS WAITING</span>
           <p className="finale-quote">Somewhere a student with your exact marks is about to take the NLU seat you wanted, for one reason only: they had a <span className="em">plan</span>, and you were still guessing.</p>
-          <p className="finale-sub">You can fix that in 3 hours on 12th July. Or keep guessing until results day.</p>
+          <p className="finale-sub">You can fix that in 3 hours on 26th July. Or keep guessing until results day.</p>
           <a className="cta hero-cta" href="#register"><span>Register Now for <s className="cta-was">&#8377;999</s> FREE</span>
             <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5"/></svg></span></a>
-          <p className="cta-note"><span className="pin">&#9679;</span> 100% free &middot; Limited seats &middot; 12th July in person</p>
+          <p className="cta-note"><span className="pin">&#9679;</span> 100% free &middot; Limited seats &middot; 26th July in person</p>
           <div className="colophon">
             <p className="disclaimer"><b>Disclaimer:</b> CLAT Possible is an education and coaching seminar. The information shared in this seminar is for educational and informational purposes only and does not constitute a guarantee of admission, rank, or any specific outcome. Individual results may vary and depend on each student&rsquo;s own effort, consistency, and preparation.</p>
             <p className="disclaimer">This website is operated and maintained by CLAT Possible. Use of this website is governed by our <a href="/terms">Terms &amp; Conditions</a> and <a href="/privacy">Privacy Policy</a>. We do not guarantee specific results or admission to any National Law University. Results vary and depend on individual effort, consistency of preparation, and other factors outside our control.</p>
