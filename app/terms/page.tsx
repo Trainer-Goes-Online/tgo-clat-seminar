@@ -27,8 +27,9 @@ export default function TermsPage() {
       <Sec n="02" title="The Program">
         <p>
           The Program is a single live, in-person educational seminar held at
-          Constitution Club of India, New Delhi, on 12th July (Sunday) from 11 AM
-          to 2 PM (approximately 3 hours), supported by a private WhatsApp
+          3rd Floor, Wave Silver Tower, 310, Sector 18, Noida, Uttar Pradesh
+          201301, on 26th July 2026 (Sunday) from 11 AM to 2 PM IST
+          (approximately 3 hours), supported by a private WhatsApp
           community for confirmation, venue details, reminders, and instructions.
           It includes a full CLAT roadmap walkthrough and a live Q&amp;A with the
           host. The current date, timing, and venue are shown on the registration

@@ -4,7 +4,7 @@
 
 export const CHECKOUT_CONFIG = {
   brandName: "CLAT Possible",
-  productName: "Free CLAT Career Seminar (12th July, in person)",
+  productName: "Free CLAT Career Seminar (26th July, in person)",
   // Free funnel: the custom event fired server-side alongside the standard
   // CompleteRegistration. Env (FREE_CUSTOM_EVENT) overrides this at the route.
   customEventName: "FreeWebinarRegistration",

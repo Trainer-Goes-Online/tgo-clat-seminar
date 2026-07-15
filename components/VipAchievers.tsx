@@ -137,7 +137,7 @@ export default function VipAchievers() {
           ))}
         </div>
 
-        <p className="vip-ach-note">A few of the achievers in the CLAT Possible network. The full VIP panel for 12th July is shared inside your WhatsApp group.</p>
+        <p className="vip-ach-note">A few of the achievers in the CLAT Possible network. The full VIP panel for 26th July is shared inside your WhatsApp group.</p>
       </div>
     </section>
   );

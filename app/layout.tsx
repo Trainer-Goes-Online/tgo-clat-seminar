@@ -5,9 +5,9 @@ import Script from "next/script";
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID || "";
 
 export const metadata: Metadata = {
-  title: "CLAT Possible — Free In-Person CLAT Seminar · 12th July",
+  title: "CLAT Possible — Free In-Person CLAT Seminar · 26th July",
   description:
-    "A free 3-hour, in-person CLAT seminar for Class 10, 11, 12 students and droppers, hosted by Dr. Surabhi Modi Sahai on 12th July. Walk out with one clear plan to a top NLU. Register free (₹999 FREE).",
+    "A free 3-hour, in-person CLAT seminar for Class 10, 11, 12 students and droppers, hosted by Dr. Surabhi Modi Sahai on 26th July. Walk out with one clear plan to a top NLU. Register free (₹999 FREE).",
 };
 
 export default function RootLayout({

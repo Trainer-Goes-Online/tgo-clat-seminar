@@ -36,7 +36,7 @@ export default function ThankYouVipPage() {
         <div className="wa wa--hero wa--critical">
           <span className="wa-tag"><svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zm0 7.2L4.8 6 12 3 19.2 6 12 9.2zM12 22a3 3 0 0 1-3-3h6a3 3 0 0 1-3 3z" /></svg> Required step &middot; Your VIP access is here</span>
           <p className="wa-t">Join the VIP seminar group on <span className="em-wa">WhatsApp</span></p>
-          <p className="wa-d">Your 1-on-1 scheduling, the private achievers circle invite, and all updates come through here before <span className="wa-date">12th July</span>.</p>
+          <p className="wa-d">Your 1-on-1 scheduling, the private achievers circle invite, and all updates come through here before <span className="wa-date">26th July</span>.</p>
           <a className="wa-btn" href={WHATSAPP_URL} target="_blank" rel="noopener" data-wa-join><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2zm0 2a8 8 0 0 1 6.6 12.5l.3.5-.7 2.5-2.6-.7-.5.3A8 8 0 1 1 12 4z" /></svg> Join now</a>
           <p className="wa-warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 9v4" /><path d="M12 17h.01" /><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" /></svg> <span>Everything VIP is coordinated <b>only on WhatsApp</b> &mdash; not email or SMS. Without joining, we can&rsquo;t schedule your session.</span></p>
         </div>
@@ -46,7 +46,7 @@ export default function ThankYouVipPage() {
           <div className="next-h">What happens next</div>
           <div className="nrow"><span className="nnum">01</span><p><b>Join the WhatsApp group.</b> Tap &ldquo;Join now&rdquo; above. This is where your entire VIP experience is coordinated.</p></div>
           <div className="nrow"><span className="nnum">02</span><p><b>Watch for your VIP invites.</b> Your 1-on-1 founder slot and the private achievers &amp; NLU-students circle invite are shared inside the group.</p></div>
-          <div className="nrow"><span className="nnum">03</span><p><b>Show up ready on 12th July.</b> Bring your real questions. You leave with your personalized roadmap and a clear plan to a top NLU.</p></div>
+          <div className="nrow"><span className="nnum">03</span><p><b>Show up ready on 26th July.</b> Bring your real questions. You leave with your personalized roadmap and a clear plan to a top NLU.</p></div>
         </div>
 
       </div>

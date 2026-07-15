@@ -123,7 +123,7 @@ export default function ConfirmationClient({ whatsappUrl }: { whatsappUrl: strin
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2z" /></svg>
             </span>
             <p className="jg-t">Wait &mdash; have you joined the WhatsApp group?</p>
-            <p className="jg-d">All venue details, timing and reminders for the <b>12th July</b> seminar are shared <b>only on WhatsApp</b>. If you leave without joining, you will miss them.</p>
+            <p className="jg-d">All venue details, timing and reminders for the <b>26th July</b> seminar are shared <b>only on WhatsApp</b>. If you leave without joining, you will miss them.</p>
             <div className="jg-acts">
               <a className="jg-join" href={whatsappUrl} target="_blank" rel="noopener" data-wa-join data-jg-ignore>
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2z" /></svg> No &mdash; let me join now
