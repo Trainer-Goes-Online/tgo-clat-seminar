@@ -1028,6 +1028,48 @@ html:has(.page-stage:not(.page-light)),body:has(.page-stage:not(.page-light)){ba
 .vip-decline:hover{color:var(--ink)}
 .vip-decline--dark{color:#A7B6CB}
 .vip-decline--dark:hover{color:#fff}
+/* hero decision box: two options side by side (Go VIP vs keep free seat) */
+.vip-choice{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:0;max-width:840px;margin:26px auto 0;text-align:left}
+.vip-choice-opt{position:relative;display:flex;flex-direction:column;padding:24px 22px;border-radius:20px;background:#fff;border:1px solid var(--hairline);box-shadow:0 22px 50px -34px rgba(10,99,204,.4)}
+.vip-choice-opt--vip{border:1.6px solid rgba(243,179,60,.6);background:linear-gradient(180deg,#FFF8E9,#FFFFFF 62%);box-shadow:0 26px 56px -28px rgba(227,154,21,.5)}
+/* second option highlighted in WhatsApp-green (join the free community for updates) */
+.vip-choice-opt--free{border:1.6px solid rgba(37,211,102,.55);background:linear-gradient(180deg,#EFFBF3,#FFFFFF 62%);box-shadow:0 26px 56px -28px rgba(14,140,74,.42)}
+.vip-choice-badge{position:absolute;top:-11px;left:22px;font-family:var(--f-mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#5A3E00;background:linear-gradient(180deg,#FFE08C,#F3B33C);padding:4px 12px;border-radius:999px;box-shadow:0 8px 18px -8px rgba(227,154,21,.8)}
+.vip-choice-badge--wa{color:#0B5A34;background:linear-gradient(180deg,#8DF0B6,#25D366);box-shadow:0 8px 18px -8px rgba(14,140,74,.75)}
+.vip-choice-ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;margin-bottom:13px;color:#5A3E00;background:linear-gradient(160deg,#FFE49A,#F3B33C)}
+.vip-choice-ico svg{width:23px;height:23px}
+.vip-choice-ico--muted{color:#6B7787;background:#EEF3F8;border:1px solid var(--hairline)}
+.vip-choice-ico--wa{color:#fff;background:linear-gradient(160deg,#2BE06F,#0E8C4A);border:0}
+.vip-choice-t{font-family:var(--f-display);font-weight:600;font-size:19px;margin:0;color:var(--ink)}
+.vip-choice-d{margin:8px 0 0;font-size:13.5px;line-height:1.55;color:#46566B;flex:1}
+.vip-choice-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:7px;margin:15px 0 0}
+.vip-choice-price s{color:#9AA6B5;font-size:15px}
+.vip-choice-price b{font-family:var(--f-display);font-weight:700;font-size:24px;color:var(--ink)}
+.vip-choice-price span{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#8a5a00;background:rgba(243,179,60,.16);padding:3px 8px;border-radius:999px}
+.vip-choice .vip-cta.vip-choice-cta{width:100%;justify-content:center;margin:16px 0 0}
+.vip-choice-cta--ghost{display:flex;width:100%;align-items:center;justify-content:center;margin-top:auto;padding:14px 18px;border-radius:999px;
+  font-family:var(--f-body);font-weight:600;font-size:14px;color:#46566B;text-decoration:none;background:#fff;border:1px solid var(--hairline);transition:.2s}
+.vip-choice-cta--ghost:hover{border-color:#B7C3D0;color:var(--ink);background:#F7FAFD}
+/* green WhatsApp-community CTA on the free option */
+.vip-choice-cta--wa{display:flex;width:100%;align-items:center;justify-content:center;gap:9px;margin-top:auto;padding:15px 18px;border-radius:999px;
+  font-family:var(--f-body);font-weight:700;font-size:15px;color:#fff;text-decoration:none;
+  background:linear-gradient(180deg,#2BE06F,#12A85A 60%,#0E8C4A);border:1px solid rgba(255,255,255,.5);
+  box-shadow:0 14px 30px -12px rgba(14,140,74,.7);transition:.2s}
+.vip-choice-cta--wa:hover{filter:brightness(1.05);transform:translateY(-1px)}
+.vip-choice-cta--wa .cta-arrow{background:rgba(0,0,0,.16)}
+.vip-choice-or{align-self:center;justify-self:center;padding:0 16px;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#8593A5}
+@media(max-width:640px){
+  .vip-choice{grid-template-columns:1fr;gap:14px}
+  .vip-choice-or{padding:2px 0}
+  /* center the whole card on mobile + consistent text→CTA gap */
+  .vip-choice-opt{text-align:center;padding:26px 20px 22px}
+  .vip-choice-badge{left:50%;transform:translateX(-50%)}
+  .vip-choice-ico{margin-left:auto;margin-right:auto}
+  .vip-choice-d{flex:none;margin-top:10px;max-width:36ch;margin-left:auto;margin-right:auto}
+  .vip-choice-price{justify-content:center;margin-top:16px}
+  .vip-choice .vip-cta.vip-choice-cta{margin-top:22px}
+  .vip-choice-cta--wa,.vip-choice-cta--ghost{margin-top:22px}
+}
 /* subtle gold glow band behind the perks section when reused elsewhere */
 .vip-perks-sec--band{background:radial-gradient(90% 62% at 50% 0,rgba(243,179,60,.12),rgba(243,179,60,0) 62%)}
 .vip-ty-foot{padding-top:clamp(8px,2vw,18px)}

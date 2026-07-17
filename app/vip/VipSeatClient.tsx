@@ -81,15 +81,34 @@ export default function VipSeatClient({
         <span className="vip-crown reveal" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 8l4.5 3.5L12 4l4.5 7.5L21 8l-1.6 10.2a1 1 0 0 1-1 .8H5.6a1 1 0 0 1-1-.8z" /></svg>
         </span>
-        <span className="eyebrow vip-hero-eyebrow"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z" /></svg> An invitation for serious aspirants</span>
-        <h1 className="vip-title">Turn Your Free Seat Into a <span className="em em--gold">VIP Seat</span></h1>
-        <p className="vip-sub">You&rsquo;ve locked your seat for 26th July. Now unlock the three things that actually decide who gets into a top NLU &mdash; direct founder access, the right people around you, and a plan built for <em>you</em>.</p>
-        <div className="vip-hero-cta reveal">
-          <a className="cta pay vip-cta" href={checkoutHref}><span>Claim My VIP Seat &middot; {priceLabel}</span>
-            <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" /></svg></span></a>
+        <span className="eyebrow vip-hero-eyebrow"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2L4.5 13.5H11l-1 8.5L19.5 10H13z" /></svg> One decision before you go</span>
+        <h1 className="vip-title">Your Seat Is Locked. Now Choose <span className="em em--gold">How You Show Up.</span></h1>
+        <p className="vip-sub">On 26th July, you can walk in with the crowd &mdash; or walk in with direct founder access, the right people around you, and a plan built for <em>you</em>. Pick your path:</p>
+
+        {/* Two-option decision box: go VIP, or keep the free seat only */}
+        <div className="vip-choice reveal">
+          <div className="vip-choice-opt vip-choice-opt--vip">
+            <span className="vip-choice-badge">Recommended</span>
+            <span className="vip-choice-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 8l4.5 3.5L12 4l4.5 7.5L21 8l-1.6 10.2a1 1 0 0 1-1 .8H5.6a1 1 0 0 1-1-.8z" /></svg></span>
+            <p className="vip-choice-t">Go VIP</p>
+            <p className="vip-choice-d">A 1-on-1 with the founders, the private CLAT achievers &amp; NLU-students circle, and your personalized roadmap &mdash; on top of the seminar.</p>
+            <p className="vip-choice-price">{compareLabel && <s>{compareLabel}</s>}<b>{priceLabel}</b><span>one-time</span></p>
+            <a className="cta pay vip-cta vip-choice-cta" href={checkoutHref}><span>Claim My VIP Seat</span>
+              <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" /></svg></span></a>
+          </div>
+
+          <span className="vip-choice-or" aria-hidden="true">or</span>
+
+          <div className="vip-choice-opt vip-choice-opt--free">
+            <span className="vip-choice-badge vip-choice-badge--wa">Free &middot; Stay updated</span>
+            <span className="vip-choice-ico vip-choice-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2z" /></svg></span>
+            <p className="vip-choice-t">Just my free seat</p>
+            <p className="vip-choice-d">Skip VIP and keep your free 26th July seat. Join the WhatsApp community so you don&rsquo;t miss the venue, timing, or reminders.</p>
+            <a className="vip-choice-cta vip-choice-cta--wa" href={declineHref}><span>Join the free community</span>
+              <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" /></svg></span></a>
+          </div>
         </div>
-        <a className="vip-decline" href={declineHref}>No thanks, I&rsquo;ll skip the VIP seat</a>
-        <p className="vip-fine">Strictly limited VIP seats &middot; One-time payment &middot; Instant VIP WhatsApp Community Access</p>
+        <p className="vip-fine">Strictly limited VIP seats &middot; One-time payment &middot; Instant VIP WhatsApp Community access</p>
       </header>
 
       {/* PERKS (shared graphics section) */}
@@ -129,19 +148,6 @@ export default function VipSeatClient({
           <details open><summary><span>Is this different from the free seminar?</span><span className="vip-faq-ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span></summary><p>Yes. You still attend the free 26th July seminar. VIP adds the 1-on-1 founder session, the private achievers &amp; NLU-students circle, and your personalized roadmap on top.</p></details>
           <details><summary><span>How do I get my VIP access?</span><span className="vip-faq-ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span></summary><p>Right after payment you land on your VIP confirmation page and join the WhatsApp community, where all VIP scheduling and event updates happen.</p></details>
           <details><summary><span>Is the payment secure?</span><span className="vip-faq-ico"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 8l5 5 5-5" /></svg></span></summary><p>Payments are processed over a secure, encrypted connection. We never see or store your card details.</p></details>
-        </div>
-      </section>
-
-      {/* FINAL CTA — highlighted panel */}
-      <section className="vip-final reveal">
-        <div className="vip-final-panel">
-          <span className="vip-final-badge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 8l4.5 3.5L12 4l4.5 7.5L21 8l-1.6 10.2a1 1 0 0 1-1 .8H5.6a1 1 0 0 1-1-.8z" /></svg></span>
-          <h2 className="vip-final-t">Your seat is booked. Now make it count.</h2>
-          <p className="vip-final-d">VIP seats are limited on purpose &mdash; the sessions only work in a small room. If you&rsquo;re serious about a top NLU, claim yours now.</p>
-          <a className="cta pay vip-cta" href={checkoutHref}><span>Claim My VIP Seat &middot; {priceLabel}</span>
-            <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" /></svg></span></a>
-          <a className="vip-decline vip-decline--dark" href={declineHref}>No, I don&rsquo;t want to book my VIP seat</a>
-          <p className="vip-fine vip-fine--dark">One-time payment &middot; Instant VIP WhatsApp Community Access &middot; Limited seats</p>
         </div>
       </section>
 
