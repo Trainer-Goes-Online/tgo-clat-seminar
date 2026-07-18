@@ -15,7 +15,7 @@ const WHATSAPP_URL =
 export default function ConfirmationPage() {
   return (
     <div className="page-stage page-light">
-      <ConfirmationClient whatsappUrl={WHATSAPP_URL} />
+      <ConfirmationClient whatsappUrl={WHATSAPP_URL} waEventName="joined_free_whatsapp" />
       <div className="wrap">
         <span className="eyebrow eyebrow--check"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm-1.2 14.2L6.6 12l1.4-1.4 2.8 2.8 5.2-5.2L17.4 9.6z" /></svg> Registration confirmed</span>
         <div className="seal seal--urgent" aria-hidden="true">

@@ -5,6 +5,7 @@ import { capturePageParams } from "@/lib/params";
 import { setMetaAdvancedMatching } from "@/lib/analytics";
 import { submitFreeRegistration, isRegFormValid, type RegForm } from "@/lib/register";
 import { INDIA_STATES, citiesForState } from "@/lib/india-locations";
+import { trackGa4EventOnce } from "@/lib/ga4";
 
 /* Free-seminar registration as a CTA-triggered modal (replaces navigating to a
    checkout/register page). Every CTA on the landing page is an <a href="#register">;
@@ -67,6 +68,7 @@ export default function RegisterModal() {
       const a = target?.closest?.('a[href="#register"]');
       if (!a) return;
       e.preventDefault();
+      trackGa4EventOnce("add_to_cart"); // any LP CTA click (once per browser)
       setOpen(true);
     };
     document.addEventListener("click", onClick);
@@ -109,6 +111,8 @@ export default function RegisterModal() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    // "Book My Free Seat" clicked — capture intent BEFORE validation (once per browser).
+    trackGa4EventOnce("registered");
     if (!e.currentTarget.checkValidity()) {
       e.currentTarget.reportValidity();
       return;

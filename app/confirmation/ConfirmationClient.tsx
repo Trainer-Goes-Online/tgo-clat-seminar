@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { reapplyMamFromCookie } from "@/lib/analytics";
+import { trackGa4EventOnce } from "@/lib/ga4";
 
 /* Confirmation-page client behaviour.
 
@@ -38,7 +39,13 @@ function setJoined(): void {
 
 type Pending = { type: "href"; url: string } | { type: "back" } | null;
 
-export default function ConfirmationClient({ whatsappUrl }: { whatsappUrl: string }) {
+export default function ConfirmationClient({
+  whatsappUrl,
+  waEventName,
+}: {
+  whatsappUrl: string;
+  waEventName: string; // GA4 event fired once per browser when the WhatsApp button is clicked
+}) {
   const [guardOpen, setGuardOpen] = useState(false);
   const pending = useRef<Pending>(null); // what to do if they confirm they've joined
 
@@ -57,6 +64,7 @@ export default function ConfirmationClient({ whatsappUrl }: { whatsappUrl: strin
       const el = e.target as HTMLElement | null;
       if (!el) return;
       if (el.closest("[data-wa-join]")) {
+        trackGa4EventOnce(waEventName); // "Join now" clicked (once per browser)
         markJoined();
         return;
       }
@@ -98,7 +106,7 @@ export default function ConfirmationClient({ whatsappUrl }: { whatsappUrl: strin
       document.removeEventListener("click", onDocClick, true);
       window.removeEventListener("popstate", onPopState);
     };
-  }, []);
+  }, [waEventName]);
 
   // "Yes, I've already joined" — stop guarding and carry out what they attempted.
   const confirmLeave = () => {

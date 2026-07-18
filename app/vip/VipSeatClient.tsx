@@ -5,6 +5,7 @@ import { capturePageParams, getStoredParams, paramsToQuery } from "@/lib/params"
 import { VIP_FOUNDERS } from "@/lib/vip-config";
 import VipPerks, { useBrokenImage } from "@/components/VipPerks";
 import VipAchievers from "@/components/VipAchievers";
+import { trackGa4EventOnce } from "@/lib/ga4";
 
 /* VIP offer page — highly visual, interactive, on-brand. Founder photos fall
    back to an initials avatar if missing. CTAs carry attribution params to
@@ -93,7 +94,7 @@ export default function VipSeatClient({
             <p className="vip-choice-t">Go VIP</p>
             <p className="vip-choice-d">A 1-on-1 with the founders, the private CLAT achievers &amp; NLU-students circle, and your personalized roadmap &mdash; on top of the seminar.</p>
             <p className="vip-choice-price">{compareLabel && <s>{compareLabel}</s>}<b>{priceLabel}</b><span>one-time</span></p>
-            <a className="cta pay vip-cta vip-choice-cta" href={checkoutHref}><span>Claim My VIP Seat</span>
+            <a className="cta pay vip-cta vip-choice-cta" href={checkoutHref} onClick={() => trackGa4EventOnce("claim_vip")}><span>Claim My VIP Seat</span>
               <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" /></svg></span></a>
           </div>
 
@@ -104,7 +105,7 @@ export default function VipSeatClient({
             <span className="vip-choice-ico vip-choice-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.4A10 10 0 1 0 12 2z" /></svg></span>
             <p className="vip-choice-t">Just my free seat</p>
             <p className="vip-choice-d">Skip VIP and keep your free 26th July seat. Join the WhatsApp community so you don&rsquo;t miss the venue, timing, or reminders.</p>
-            <a className="vip-choice-cta vip-choice-cta--wa" href={declineHref}><span>Join the free community</span>
+            <a className="vip-choice-cta vip-choice-cta--wa" href={declineHref} onClick={() => trackGa4EventOnce("free_community")}><span>Join the free community</span>
               <span className="cta-arrow"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 10h11M11 5.5L15.5 10 11 14.5" /></svg></span></a>
           </div>
         </div>
